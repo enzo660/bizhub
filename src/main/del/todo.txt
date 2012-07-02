@@ -1,0 +1,1 @@
+- add annotation for getUserId() in Site.java . hibernate association
