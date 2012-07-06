@@ -1,15 +1,16 @@
 package com.bizhub.bzwebapp.web;
 
+import static com.bizhub.bzwebapp.Util.isEmpty;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bizhub.bzwebapp.dao.DuplicateIdException;
-import com.bizhub.bzwebapp.domain.Site;
+import org.springframework.dao.DataIntegrityViolationException;
 
-import static com.bizhub.bzwebapp.Util.isEmpty;
+import com.bizhub.bzwebapp.domain.Site;
 
 public class SiteSaveServlet extends AbstractDaoAccessServlet {
 
@@ -41,7 +42,7 @@ public class SiteSaveServlet extends AbstractDaoAccessServlet {
                 super.getDaoRepository().getSiteDao().save(site);
 
                 req.getRequestDispatcher("/siteView.jsp").forward(req, resp);
-            } catch (DuplicateIdException e) {
+            } catch (DataIntegrityViolationException e) {
                 req.setAttribute("error", "Duplicate name: " + e.getMessage());
                 req.getRequestDispatcher("/siteForm.jsp").forward(req, resp);
             }

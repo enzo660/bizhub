@@ -1,8 +1,9 @@
 package com.bizhub.bzwebapp.dao;
 
 import java.util.List;
-
 import com.bizhub.bzwebapp.domain.Site;
+
+import org.springframework.dao.DataAccessException;
 
 public interface SiteDao {
     public Site getById(Long id) throws DataAccessException;

@@ -2,6 +2,8 @@ package com.bizhub.bzwebapp.dao;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.bizhub.bzwebapp.domain.User;
 
 public interface UserDao {

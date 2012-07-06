@@ -12,7 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bizhub.bzwebapp.dao.DuplicateIdException;
+import org.springframework.dao.DataIntegrityViolationException;
+
 import com.bizhub.bzwebapp.domain.User;
 
 public class UserSaveServlet extends AbstractDaoAccessServlet {
@@ -91,7 +92,7 @@ public class UserSaveServlet extends AbstractDaoAccessServlet {
 				super.getDaoRepository().getUserDao().save(user);
 				resp.sendRedirect(resp.encodeRedirectURL("user?id="
 						+ user.getId()));
-			} catch (DuplicateIdException e) {
+			} catch (DataIntegrityViolationException e) {
 				req.setAttribute("error", "Duplicate email: " + e.getMessage());
 				req.getRequestDispatcher("/userForm.jsp").forward(req, resp);
 			}
