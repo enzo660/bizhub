@@ -21,111 +21,17 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
 	<servlet>
-		<servlet-name>appServlet</servlet-name>
+		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
-		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
+		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>SiteList</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.SiteListServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>SiteDelete</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.SiteDeleteServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>SiteGet</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.SiteGetServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>SiteForm</servlet-name>
-		<jsp-file>/siteForm.jsp</jsp-file>
-	</servlet>
-	<servlet>
-		<servlet-name>SiteSave</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.SiteSaveServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>UserList</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.UserListServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>UserDelete</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.UserDeleteServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>UserGet</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.UserGetServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>UserForm</servlet-name>
-		<jsp-file>/userForm.jsp</jsp-file>
-	</servlet>
-	<servlet>
-		<servlet-name>UserSave</servlet-name>
-		<servlet-class>com.bizhub.bzwebapp.web.UserSaveServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>SiteList</servlet-name>
-		<url-pattern>/sites</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SiteDelete</servlet-name>
-		<url-pattern>/site_delete</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SiteGet</servlet-name>
-		<url-pattern>/site</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SiteForm</servlet-name>
-		<url-pattern>/site_add</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SiteSave</servlet-name>
-		<url-pattern>/site_save</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SiteGet</servlet-name>
-		<url-pattern>/site_edit</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>UserList</servlet-name>
-		<url-pattern>/users</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UserDelete</servlet-name>
-		<url-pattern>/user_delete</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UserGet</servlet-name>
-		<url-pattern>/user</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UserForm</servlet-name>
-		<url-pattern>/user_add</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UserSave</servlet-name>
-		<url-pattern>/user_save</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UserGet</servlet-name>
-		<url-pattern>/user_edit</url-pattern>
-	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
