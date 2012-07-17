@@ -45,7 +45,7 @@
                 </td>
                 <td class="small">
                   <a class="button" href="<c:url value='/user?id=${user.id}'/>">View</a>
-                  <a class="button" href="<c:url value='/user_edit?id=${user.id}'/>">Edit</a>
+                  <a class="button" href="<c:url value='/user_form?id=${user.id}'/>">Edit</a>
                   <a class="button" href="<c:url value='/user_delete?id=${user.id}'/>"
                     onclick="return confirm('Are you sure you wish to delete this user?');">Delete</a>
                 </td>

@@ -22,12 +22,14 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		
 		<property name="annotatedClasses">
 			<list>
 				<value>com.bizhub.bzwebapp.domain.Site</value>
 				<value>com.bizhub.bzwebapp.domain.User</value>
 			</list>
 		</property>
+		
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">

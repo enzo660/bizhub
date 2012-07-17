@@ -86,6 +86,13 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 
+		<!-- Javassist -->
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+		</dependency>
+
 		<!-- Logging -->
 
 		<dependency>

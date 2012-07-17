@@ -48,14 +48,10 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Modification Actions</web-resource-name>
-			<url-pattern>/site_save</url-pattern>
+			<url-pattern>/site_form</url-pattern>
 			<url-pattern>/site_delete</url-pattern>
-			<url-pattern>/site_add</url-pattern>
-			<url-pattern>/site_edit</url-pattern>
-			<url-pattern>/user_save</url-pattern>
+			<url-pattern>/user_form</url-pattern>
 			<url-pattern>/user_delete</url-pattern>
-			<url-pattern>/user_add</url-pattern>
-			<url-pattern>/user_edit</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>user</role-name>

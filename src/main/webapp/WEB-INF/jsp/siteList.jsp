@@ -34,7 +34,7 @@
 							<td class="small"><a class="button"
 								href="<c:url value='/site?id=${site.id}'/>">View</a>
 								<a class="button"
-								href="<c:url value='/site_edit?id=${site.id}'/>">Edit</a>
+								href="<c:url value='/site_form?id=${site.id}'/>">Edit</a>
 								<a class="button"
 								href="<c:url value='/site_delete?id=${site.id}'/>"
 								onclick="return confirm('Are you sure you wish to delete this site?');">Delete</a>
