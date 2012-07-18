@@ -1,5 +1,7 @@
 package com.bizhub.bzwebapp.web;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -34,7 +36,7 @@ public class SiteFormController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String processSubmit(
-            @ModelAttribute("site") Site site,
+            @ModelAttribute("site") @Valid Site site,
             BindingResult result, SessionStatus status) {
         if (!result.hasErrors()) {
             this.dao.save(site);

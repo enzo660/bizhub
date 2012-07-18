@@ -93,6 +93,13 @@
 			<version>3.12.1.GA</version>
 		</dependency>
 
+		<!-- Hibernate Validator. JSR 303 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.3.0.Final</version>
+		</dependency>
+
 		<!-- Logging -->
 
 		<dependency>

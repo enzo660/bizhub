@@ -4,9 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -21,6 +24,9 @@ public class Site extends IdentifiableEntity{
 
 	private long userId;
 
+	@Size(max = 64)
+	@NotEmpty
+	@NotNull
 	@Column(name = "name", length = 64, unique = true, nullable = false)
 	public String getName() {
 		return name;

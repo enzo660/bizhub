@@ -2,9 +2,14 @@ package com.bizhub.bzwebapp.web;
 
 import java.io.Serializable;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import com.bizhub.bzwebapp.Util;
 import com.bizhub.bzwebapp.domain.User;
 
+@PasswordRequiredForNewUsers
+@VerifiedPassword
 public class UserAndPassword implements Serializable {
 
     private static final long serialVersionUID = -955350814749881282L;
@@ -19,6 +24,8 @@ public class UserAndPassword implements Serializable {
         this.user = user;
     }
 
+    @Valid
+    @NotNull
     public User getUser() {
         return this.user;
     }
