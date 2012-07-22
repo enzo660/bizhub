@@ -3,6 +3,8 @@ package com.bizhub.bzwebapp.web;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.ConcurrencyFailureException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,14 +43,21 @@ public class UserAndPasswordFormController {
             @ModelAttribute("userAndPassword") @Valid UserAndPassword userAndPassword,
             BindingResult result, SessionStatus status) {
         if (!result.hasErrors()) {
-            User user = userAndPassword.getUser();
-            if (userAndPassword.isPasswordVerified()) {
-                user.setPasswordDigest(Util.md5Digest(userAndPassword
-                        .getPassword()));
+            try {
+                User user = userAndPassword.getUser();
+                if (userAndPassword.isPasswordVerified()) {
+                    user.setPasswordDigest(Util.md5Digest(userAndPassword
+                            .getPassword()));
+                }
+                this.dao.save(user);
+                status.setComplete();
+                return "redirect:user?id=" + user.getId();
+            } catch (DataIntegrityViolationException e) {
+                result.rejectValue("user.email", "DuplicateEmailFailure");
+            } catch (ConcurrencyFailureException e) {
+                result.reject("ConcurrentModificatonFailure",
+                        new String[] { "user" }, null);
             }
-            this.dao.save(user);
-            status.setComplete();
-            return "redirect:user?id=" + user.getId();
         }
         return "userForm";
     }
