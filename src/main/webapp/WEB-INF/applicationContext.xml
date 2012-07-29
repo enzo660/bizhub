@@ -65,5 +65,7 @@
 	<bean id="userDao" class="com.bizhub.bzwebapp.dao.HibernateUserDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="userStoreService" class="com.bizhub.bzwebapp.service.DefaultUserStoreService" />
 
 </beans>

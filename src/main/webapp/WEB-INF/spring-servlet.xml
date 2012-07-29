@@ -40,6 +40,10 @@
 
 	<mvc:view-controller path="/home" view-name="home" />
 	
+	<mvc:view-controller path="/login" view-name="login" />
+	
+	<mvc:view-controller path="/access_denied" view-name="accessDenied" />
+	
 	<bean name="/sites" class="com.bizhub.bzwebapp.web.IdentifiableEntityListController">
 		<property name="viewName" value="siteList"/>
 		<property name="dao" ref="siteDao"/>

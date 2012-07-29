@@ -10,45 +10,6 @@ public class Util {
 	private static final String HEX_ALPHABET[] = { "0", "1", "2", "3", "4",
 			"5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
-	/**
-	 * Encode byte array in hexadecimal notation.
-	 * 
-	 * @param in
-	 *            the byte array to encode
-	 * @return hex-encoded string representation of the byte array.
-	 */
-	public static String hexEncode(byte in[]) {
-		if (in == null || in.length == 0) {
-			return null;
-		}
-		StringBuilder out = new StringBuilder(in.length * 2);
-		for (int i = 0; i < in.length; i++) {
-			byte b = (byte) (in[i] & 0xF0);
-			b = (byte) (b >>> 4);
-			b = (byte) (b & 0x0F);
-			out.append(HEX_ALPHABET[b]);
-			b = (byte) (in[i] & 0x0F);
-			out.append(HEX_ALPHABET[b]);
-		}
-		return new String(out);
-	}
-
-	/**
-	 * Generate MD5 digest of a string.
-	 * 
-	 * @param in
-	 *            the string to digest.
-	 * @return hexadecimal-encoded MD5-digest of the input string.
-	 */
-	public static String md5Digest(String in) {
-		try {
-			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-			byte[] digest = messageDigest.digest(in.getBytes());
-			return hexEncode(digest);
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException("Failed to get MD5 digest", e);
-		}
-	}
 
 	/**
 	 * Check if a string is empty (blank)

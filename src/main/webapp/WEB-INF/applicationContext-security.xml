@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
+	<http path-type="regex" lowercase-comparisons="false" realm="bizhub"
+		access-denied-page="/access_denied">
+
+		<intercept-url pattern="^/user_profile.*$"
+			requires-channel="http" access="ROLE_USER" />
+
+		<intercept-url pattern="^/(user|site)_(form|delete).*$"
+			requires-channel="http" access="ROLE_ADMIN" />
+			
+        <intercept-url pattern="^/login.*$"
+            requires-channel="http" method="POST" />
+
+		<intercept-url pattern="^/.+\.*$" requires-channel="http" />
+
+		<form-login login-processing-url="/security_check.html"
+			login-page="/login" default-target-url="/"
+			always-use-default-target="false" />
+
+		<anonymous username="anonymousUser" granted-authority="ROLE_ANONYMOUS" />
+
+		<http-basic />
+
+		<logout logout-url="/logout" logout-success-url="/?logout=true"
+			invalidate-session="true" />
+
+		<session-management>
+			<concurrency-control max-sessions="1"
+				error-if-maximum-exceeded="true" expired-url="/logout" />
+		</session-management>
+
+		<remember-me key="5ecb2ef3fab28efa9bf6f6570d20165f"
+			token-validity-seconds="7776000" />
+
+	</http>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder ref="passwordEncoder">
+				<salt-source user-property="id" />
+			</password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+
+	<beans:bean id="userDetailsService" class="com.bizhub.bzwebapp.security.DefaultUserDetailsService" />
+
+	<beans:bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+
+	<global-method-security secured-annotations="enabled" />
+
+</beans:beans>

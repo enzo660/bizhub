@@ -4,8 +4,10 @@
 	<ResourceLink name="jdbc/bizhub" global="jdbc/bizhub" />
 	
 	  <!-- For simplicity sake, we are hard coding everyone to be in 'user' role -->
+	  <!-- 
 	<Realm className="org.apache.catalina.realm.DataSourceRealm"
 		dataSourceName="jdbc/bizhub" userTable="user" userNameCol="email"
 		userCredCol="passwordDigest" userRoleTable="user" roleNameCol="&quot;user&quot;"
 		digest="MD5" />
+		 -->
 </Context>

@@ -55,4 +55,9 @@ public class JSPFunctions {
         return new String(mask);
     }
     
+    public static String getType(Object o) {
+        return o == null ? null : o.getClass().getName();
+    }
+    
+    
 }

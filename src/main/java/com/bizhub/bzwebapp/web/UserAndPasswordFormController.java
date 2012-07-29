@@ -18,16 +18,19 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bizhub.bzwebapp.Util;
 import com.bizhub.bzwebapp.dao.UserDao;
 import com.bizhub.bzwebapp.domain.User;
+import com.bizhub.bzwebapp.service.UserStoreService;
 
 @Controller
 @RequestMapping("/user_form")
 @SessionAttributes("userAndPassword")
 public class UserAndPasswordFormController {
     private final UserDao dao;
+    private final UserStoreService userStoreService;
 
     @Autowired
-    public UserAndPasswordFormController(UserDao dao) {
+    public UserAndPasswordFormController(UserDao dao,  UserStoreService userStoreService) {
         this.dao = dao;
+        this.userStoreService = userStoreService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -45,11 +48,9 @@ public class UserAndPasswordFormController {
         if (!result.hasErrors()) {
             try {
                 User user = userAndPassword.getUser();
-                if (userAndPassword.isPasswordVerified()) {
-                    user.setPasswordDigest(Util.md5Digest(userAndPassword
-                            .getPassword()));
-                }
-                this.dao.save(user);
+                String password = userAndPassword.isPasswordVerified() ? userAndPassword
+                        .getPassword() : null;
+                this.userStoreService.store(user, password);
                 status.setComplete();
                 return "redirect:user?id=" + user.getId();
             } catch (DataIntegrityViolationException e) {
