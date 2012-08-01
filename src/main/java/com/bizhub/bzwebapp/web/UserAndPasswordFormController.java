@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bizhub.bzwebapp.Util;
 import com.bizhub.bzwebapp.dao.UserDao;
 import com.bizhub.bzwebapp.domain.User;
+import com.bizhub.bzwebapp.service.UserContextService;
 import com.bizhub.bzwebapp.service.UserStoreService;
 
 @Controller
@@ -26,19 +26,33 @@ import com.bizhub.bzwebapp.service.UserStoreService;
 public class UserAndPasswordFormController {
     private final UserDao dao;
     private final UserStoreService userStoreService;
-
+    private final UserContextService userContextService;
+    
     @Autowired
-    public UserAndPasswordFormController(UserDao dao,  UserStoreService userStoreService) {
+    public UserAndPasswordFormController(UserDao dao,  UserStoreService userStoreService, UserContextService userContextService) {
         this.dao = dao;
         this.userStoreService = userStoreService;
+        this.userContextService = userContextService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView setupForm(
             @RequestParam(value = "id", required = false) Long id) {
-        User user = id == null ? new User() : this.dao.getById(id);
+    	
+    	User loggedInUser = this.userContextService.getUserFromContext();
+    	User userToModify = null;
+    	
+    	//If the user is not an admin, they can edit their own profile
+    	if(!loggedInUser.isAdmin()){
+    		userToModify = loggedInUser;
+    	}else{
+    		//If the user is admin and if the id is provided, edit the user corresponding to that id
+    		//otherwise, edit the logged in user (admin)
+    		userToModify = id == null ? loggedInUser : this.dao.getById(id);
+    	}
+
         return new ModelAndView("userForm")
-                .addObject(new UserAndPassword(user));
+                .addObject(new UserAndPassword(userToModify));
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -52,7 +66,14 @@ public class UserAndPasswordFormController {
                         .getPassword() : null;
                 this.userStoreService.store(user, password);
                 status.setComplete();
-                return "redirect:user?id=" + user.getId();
+                
+                User loggedInUser = this.userContextService.getUserFromContext();
+                if(!loggedInUser.isAdmin()){
+                	return "redirect:user";
+                }else{
+                	return "redirect:user?id=" + user.getId();
+                }
+                
             } catch (DataIntegrityViolationException e) {
                 result.rejectValue("user.email", "DuplicateEmailFailure");
             } catch (ConcurrencyFailureException e) {

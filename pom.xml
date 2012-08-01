@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>3.1.1.RELEASE</version>
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>3.1.1.RELEASE</version>
 		</dependency>
 
 		<!-- Hibernate -->
@@ -118,6 +118,27 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
+			<version>3.0.7.RELEASE</version>
+		</dependency>
+		
+		<!-- Spring Security Taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>3.0.7.RELEASE</version>
+		</dependency>
+		
+		<!-- Spring Security acl -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-acl</artifactId>
+			<version>3.0.7.RELEASE</version>
+		</dependency>
+		
+		<!-- Spring Security Aspects -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-aspects</artifactId>
 			<version>3.0.7.RELEASE</version>
 		</dependency>
 

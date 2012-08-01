@@ -67,5 +67,7 @@
 	</bean>
 	
 	<bean id="userStoreService" class="com.bizhub.bzwebapp.service.DefaultUserStoreService" />
+	
+	<bean id="userContextService" class="com.bizhub.bzwebapp.service.DefaultUserContextService"/>
 
 </beans>

@@ -73,5 +73,9 @@
 		<property name="viewName" value="redirect:users"/>
 		<property name="dao" ref="userDao"/>
 	</bean>
+	
+	<mvc:interceptors>
+        <bean class="com.bizhub.bzwebapp.web.UserContextInterceptor" />
+    </mvc:interceptors>
 
 </beans>

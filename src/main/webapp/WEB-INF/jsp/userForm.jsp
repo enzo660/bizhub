@@ -3,6 +3,7 @@
 <%@ taglib prefix="f" uri="/WEB-INF/functions.tld"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -55,6 +56,25 @@
 					<td><form:input path="email" /> <form:errors path="email"
 							cssClass="error" /></td>
 				</tr>
+				<c:if test="${not profile}">
+					<security:authorize ifAllGranted="ROLE_ADMIN">
+						<tr>
+							<th><form:label path="enabled">Enabled</form:label> *:</th>
+							<td>
+								<form:radiobutton path="enabled" value="true" /> Yes &nbsp;&nbsp;&nbsp; 
+								<form:radiobutton path="enabled" value="false" /> No 
+								<form:errors path="enabled" cssClass="error" />
+							</td>
+						</tr>
+						<tr>
+							<th><form:label path="admin">Admin</form:label> *:</th>
+							<td>
+								<form:radiobutton path="admin" value="true" /> Yes &nbsp;&nbsp;&nbsp; 
+								<form:radiobutton path="admin" value="false" /> No 
+							<form:errors path="admin" cssClass="error" /></td>
+						</tr>
+					</security:authorize>
+				</c:if>
 			</spring:nestedPath>
 			<c:set var="passwordRequired"
 				value="${userAndPassword.user.idSet? '' : '*'}" />

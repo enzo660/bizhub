@@ -14,8 +14,17 @@
 		<intercept-url pattern="^/user_profile.*$"
 			requires-channel="http" access="ROLE_USER" />
 
-		<intercept-url pattern="^/(user|site)_(form|delete).*$"
-			requires-channel="http" access="ROLE_ADMIN" />
+		<intercept-url pattern="^/(user|site)_(form).*$"
+                        requires-channel="http" access="ROLE_USER" />
+
+        <intercept-url pattern="^/(user|site)_(delete).*$"
+                        requires-channel="http" access="ROLE_ADMIN" />
+			
+		<intercept-url pattern="^/users.*$"
+            requires-channel="http" access="ROLE_ADMIN" />
+
+        <intercept-url pattern="^/sites.*$"
+            requires-channel="http" access="ROLE_ADMIN" />	
 			
         <intercept-url pattern="^/login.*$"
             requires-channel="http" method="POST" />
