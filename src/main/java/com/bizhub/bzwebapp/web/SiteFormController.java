@@ -17,22 +17,46 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bizhub.bzwebapp.dao.SiteDao;
 import com.bizhub.bzwebapp.domain.Site;
+import com.bizhub.bzwebapp.domain.User;
+import com.bizhub.bzwebapp.service.UserContextService;
 
 @Controller
 @RequestMapping("/site_form")
 @SessionAttributes("site")
 public class SiteFormController {
+
 	private final SiteDao dao;
+	private final UserContextService userContextService;
+
 
 	@Autowired
-	public SiteFormController(SiteDao dao) {
+	public SiteFormController(SiteDao dao, UserContextService userContextService) {
 		this.dao = dao;
+		this.userContextService = userContextService;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView setupForm(
 			@RequestParam(value = "id", required = false) Long id) {
-		Site site = id == null ? new Site() : this.dao.getById(id);
+
+		User loggedInUser = this.userContextService.getUserFromContext();
+		Site site = new Site();
+
+		//If the user is not creating a new site
+		//Non-admin user
+		if(!loggedInUser.isAdmin() && loggedInUser.getSite() != null){	
+			site = loggedInUser.getSite();				
+		}else{ //admin user
+
+			if(id != null){
+				site = this.dao.getById(id);
+			}else{
+				if(loggedInUser.getSite() != null){
+					site = loggedInUser.getSite();
+				}
+			}
+		}
+
 		return new ModelAndView("siteForm").addObject(site);
 	}
 
@@ -40,10 +64,20 @@ public class SiteFormController {
 	public String processSubmit(
 			@ModelAttribute("site") @Valid Site site,
 			BindingResult result, SessionStatus status) {
+
+		User loggedInUser = this.userContextService.getUserFromContext();
+
+		//If it's a new site creation and not an edit
+		if(site.getUser() == null){
+			site.setUser(loggedInUser);
+		}
+
 		if (!result.hasErrors()) {
 			try {
 				this.dao.save(site);
 				status.setComplete();
+				//If this is not done, then the user would have to log out and then log in again.
+				loggedInUser.setSite(site);
 				return "redirect:site?id=" + site.getId();
 			} catch (DataIntegrityViolationException e) {
 				result.rejectValue("name", "DuplicateNameFailure");

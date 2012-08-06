@@ -22,6 +22,7 @@
 						<th class="number">Id</th>
 						<th>Name</th>
 						<th>Description</th>
+						<th>User Id - Email</th>
 						<th><em>Actions</em></th>
 					</tr>
 				</thead>
@@ -31,6 +32,7 @@
 							<td class="number">${site.id}</td>
 							<td>${site.name}</td>
 							<td>${f:trimToLength(site.description, 40)}</td>
+							<td>${site.user.id} - ${site.user.email}</td>
 							<td class="small"><a class="button"
 								href="<c:url value='/site?id=${site.id}'/>">View</a>
 								<a class="button"

@@ -2,7 +2,10 @@ package com.bizhub.bzwebapp.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,8 +24,8 @@ public class Site extends IdentifiableEntity{
 	private String name;
 
 	private String description;
-
-	private long userId;
+	
+	private User user;
 
 	@Size(max = 64)
 	@NotEmpty
@@ -44,14 +47,6 @@ public class Site extends IdentifiableEntity{
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
 	}
 
 	@Override
@@ -77,6 +72,16 @@ public class Site extends IdentifiableEntity{
 	@Override
 	public String toString() {
 		return "site with name: " + this.name;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

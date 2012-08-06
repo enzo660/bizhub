@@ -2,8 +2,11 @@ package com.bizhub.bzwebapp.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -39,6 +42,8 @@ public class User extends IdentifiableEntity {
 	private boolean admin = false;
 
 	private boolean enabled = true;
+	
+	private Site site;
 
 	@Size(max = 64)
 	@Column(length = 64)
@@ -164,6 +169,15 @@ public class User extends IdentifiableEntity {
 	@Override
 	public String toString() {
 		return this.getName();
+	}
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
 }
