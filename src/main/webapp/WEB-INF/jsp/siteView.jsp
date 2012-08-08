@@ -30,6 +30,14 @@
         <th>State:</th>
         <td>${site.state}</td>
       </tr>
+      <tr>
+        <th>Bizvez site address:</th>
+        <td>${site.address}</td>
+      </tr>
+      <tr>
+        <th>Content:</th>
+        <td>${site.content}</td>
+      </tr>
       
       <security:authorize ifNotGranted="ROLE_ADMIN">
       	<tr>

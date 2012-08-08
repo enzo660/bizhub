@@ -82,6 +82,7 @@
 	
 	<bean name="/site/*" class="com.bizhub.bzwebapp.web.DefaultController">
 		<property name="viewName" value="outputSite"/>
+		<property name="siteDao" ref="siteDao"/>
 	</bean>
 	
 	<mvc:interceptors>

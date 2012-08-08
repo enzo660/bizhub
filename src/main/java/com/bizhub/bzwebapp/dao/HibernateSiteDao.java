@@ -15,6 +15,10 @@ public class HibernateSiteDao extends AbstractHibernateDao<Site>
 	public Site getByName(String name) throws DataAccessException {
 		return super.findOne("from Site where name=?", name);
 	}
+	
+	public Site getByAddress(String address) throws DataAccessException{
+		return super.findOne("from Site where address=?", address);
+	}
 
 	public List<Site> getAll() throws DataAccessException {
 		return super.findAll("from Site order by name");

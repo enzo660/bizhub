@@ -30,6 +30,10 @@ public class Site extends IdentifiableEntity{
 	private String city;
 	
 	private String state;
+	
+	private String address;
+	
+	private String content;
 
 	@Size(max = 64)
 	@NotEmpty
@@ -111,6 +115,28 @@ public class Site extends IdentifiableEntity{
 	public void setState(String state) {
 		this.state = state;
 	}
+
+	@Size(max = 64)
+	@Column(name = "address", length = 128, unique = true)
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Lob
+	@Column(name = "content")
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+
 
 
 }

@@ -60,6 +60,20 @@
           </td>
         </tr>
         <tr>
+          <th><form:label path="address">Bizvez Site Address</form:label> :</th>
+          <td>
+            <form:input path="address" />
+			<form:errors path="address" cssClass="error"/>
+          </td>
+        </tr>
+        <tr>
+          <th><form:label path="content">Content</form:label> :</th>
+          <td>
+            <form:textarea path="content" cols="80" rows="8" />
+			<form:errors path="content" cssClass="error"/>
+          </td>
+        </tr>
+        <tr>
           <th>&nbsp;</th>
           <td>
             <input type="submit" value="Save"/>
