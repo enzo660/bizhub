@@ -26,6 +26,10 @@ public class Site extends IdentifiableEntity{
 	private String description;
 	
 	private User user;
+	
+	private String city;
+	
+	private String state;
 
 	@Size(max = 64)
 	@NotEmpty
@@ -82,6 +86,30 @@ public class Site extends IdentifiableEntity{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@Size(max = 64)
+	@NotEmpty
+	@NotNull
+	@Column(name = "city", length = 64, nullable = false)
+	public String getCity() {
+		return city;
+	}
+	
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	@Size(max = 64)
+	@NotEmpty
+	@NotNull
+	@Column(name = "state", length = 64, nullable = false)
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 

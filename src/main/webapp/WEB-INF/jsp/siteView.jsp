@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="f" uri="/WEB-INF/functions.tld"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -22,13 +23,25 @@
         <td>${f:convertToHtmlLineBreaks(site.description)}</td>
       </tr>
       <tr>
-        <th>&nbsp;</th>
-        <td style="padding-top: 10px;">
-          <a class="button" href="<c:url value='/site_form?id=${site.id}'/>">Edit</a>
-          <a class="button" href="<c:url value='/site_delete?id=${site.id}'/>"
-	       onclick="return confirm('Are you sure you wish to delete this site?');">Delete</a>
-        </td>
+        <th>City:</th>
+        <td>${site.city}</td>
       </tr>
+      <tr>
+        <th>State:</th>
+        <td>${site.state}</td>
+      </tr>
+      
+      <security:authorize ifNotGranted="ROLE_ADMIN">
+      	<tr>
+	        <th>&nbsp;</th>
+	        <td style="padding-top: 10px;">
+	          <a class="button" href="<c:url value='/site_form'/>">Edit</a>
+	          <a class="button" href="<c:url value='/site_delete'/>"
+		       onclick="return confirm('Are you sure you wish to delete this site?');">Delete</a>
+	        </td>
+	      </tr>
+      </security:authorize>
+      
     </table>
   </body>
 </html>

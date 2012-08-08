@@ -14,11 +14,11 @@
 		<intercept-url pattern="^/user_profile.*$"
 			requires-channel="http" access="ROLE_USER" />
 
-		<intercept-url pattern="^/(user|site)_(form).*$"
+		<intercept-url pattern="^/(site)_(form).*$"
                         requires-channel="http" access="ROLE_USER" />
 
         <intercept-url pattern="^/(user|site)_(delete).*$"
-                        requires-channel="http" access="ROLE_ADMIN" />
+                        requires-channel="http" access="ROLE_USER" />
 			
 		<intercept-url pattern="^/users.*$"
             requires-channel="http" access="ROLE_ADMIN" />

@@ -78,7 +78,7 @@ public class SiteFormController {
 				status.setComplete();
 				//If this is not done, then the user would have to log out and then log in again.
 				loggedInUser.setSite(site);
-				return "redirect:site?id=" + site.getId();
+				return "redirect:site";
 			} catch (DataIntegrityViolationException e) {
 				result.rejectValue("name", "DuplicateNameFailure");
 			} catch (ConcurrencyFailureException e) {

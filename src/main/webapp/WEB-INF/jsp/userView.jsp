@@ -1,19 +1,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="f" uri="/WEB-INF/functions.tld"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-  <head>
-    <title>${user.name} User</title>
-    <jsp:include page="htmlHead.jsp"/>
-  </head>
-  <body>
-    <jsp:include page="navBar.jsp"/>
-    <p>${user.name} User</p>
+<head>
+<title>${user.name} User</title>
+<jsp:include page="htmlHead.jsp" />
+</head>
+<body>
+	<jsp:include page="navBar.jsp" />
+	<p>${user.name} User</p>
 	<table class="nameValuePairs">
 		<tr>
 			<th>First Name:</th>
@@ -53,14 +54,19 @@
 				<th>Admin:</th>
 				<td>${user.admin? 'Yes' : 'No'}</td>
 			</tr>
+		</security:authorize>
+		<security:authorize ifNotGranted="ROLE_ADMIN">
 			<tr>
 				<th>&nbsp;</th>
-				<td style="padding-top: 10px;">
-					<a class="button" href="<c:url value='/user_form?id=${user.id}'/>">Edit</a> 
-					<a class="button" href="<c:url value='/user_delete?id=${user.id}'/>" onclick="return confirm('Are you sure you wish to delete this user?');">Delete</a>
+				<td style="padding-top: 10px;"><a class="button"
+					href="<c:url value='/user_form'/>">Edit</a> <a
+					class="button" href="<c:url value='/user_delete'/>"
+					onclick="return confirm('Are you sure you wish to delete this profile?');">Delete</a>
 				</td>
 			</tr>
 		</security:authorize>
+		
+
 	</table>
 </body>
 </html>

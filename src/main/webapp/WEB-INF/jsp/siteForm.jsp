@@ -46,6 +46,20 @@
           </td>
         </tr>
         <tr>
+          <th><form:label path="city">City</form:label> *:</th>
+          <td>
+            <form:input path="city" />
+			<form:errors path="city" cssClass="error"/>
+          </td>
+        </tr>
+        <tr>
+          <th><form:label path="state">State</form:label> *:</th>
+          <td>
+            <form:input path="state" />
+			<form:errors path="state" cssClass="error"/>
+          </td>
+        </tr>
+        <tr>
           <th>&nbsp;</th>
           <td>
             <input type="submit" value="Save"/>

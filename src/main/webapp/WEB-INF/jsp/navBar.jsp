@@ -10,9 +10,6 @@
 <div class="navBar">
 	<a class="button" href="<c:url value='/home'/>">Home</a>
 	<security:authorize ifAllGranted="ROLE_ADMIN">
-		<a class="button" href="<c:url value='/site_form'/>">Add Site</a>
-	</security:authorize>
-	<security:authorize ifAllGranted="ROLE_ADMIN">
 		<a class="button" href="<c:url value='/sites'/>">List Sites</a>
 	</security:authorize>
 	<security:authorize ifAllGranted="ROLE_ADMIN">
@@ -26,5 +23,8 @@
 	</security:authorize>
 	<security:authorize ifNotGranted="ROLE_USER">
 		<a class="button" href="<c:url value='/login'/>">Login</a>
+	</security:authorize>
+	<security:authorize ifNotGranted="ROLE_USER">
+		<a class="button" href="<c:url value='/user_form'/>">Sign Up!</a>
 	</security:authorize>
 </div>

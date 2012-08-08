@@ -38,11 +38,15 @@
 		</property>
 	</bean>
 
-	<mvc:view-controller path="/home" view-name="home" />
+	<!-- <mvc:view-controller path="/home" view-name="home" /> -->
 	
 	<mvc:view-controller path="/login" view-name="login" />
 	
 	<mvc:view-controller path="/access_denied" view-name="accessDenied" />
+	
+	<bean name="/home" class="com.bizhub.bzwebapp.web.HomeController">
+		<property name="viewName" value="home"/>
+	</bean>
 	
 	<bean name="/sites" class="com.bizhub.bzwebapp.web.IdentifiableEntityListController">
 		<property name="viewName" value="siteList"/>
@@ -55,8 +59,9 @@
 	</bean>
 
 	<bean name="/site_delete" class="com.bizhub.bzwebapp.web.IdentifiableEntityDeleteController">
-		<property name="viewName" value="redirect:sites"/>
+		<property name="viewName" value="redirect:home"/>
 		<property name="dao" ref="siteDao"/>
+		<property name="entityDeleted" value="site"/>
 	</bean>
 
 	<bean name="/users" class="com.bizhub.bzwebapp.web.IdentifiableEntityListController">
@@ -70,8 +75,13 @@
 	</bean>
 
 	<bean name="/user_delete" class="com.bizhub.bzwebapp.web.IdentifiableEntityDeleteController">
-		<property name="viewName" value="redirect:users"/>
+		<property name="viewName" value="redirect:logout"/>
 		<property name="dao" ref="userDao"/>
+		<property name="entityDeleted" value="user"/>
+	</bean>
+	
+	<bean name="/site/*" class="com.bizhub.bzwebapp.web.DefaultController">
+		<property name="viewName" value="outputSite"/>
 	</bean>
 	
 	<mvc:interceptors>
