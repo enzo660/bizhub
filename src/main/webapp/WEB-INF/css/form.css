@@ -1,0 +1,100 @@
+/**** Begin : CSS Reset ***/
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+	padding: 0; 
+	margin: 0; 
+	font-size: 100%; 
+	font-weight: normal;
+} 
+ol {
+	margin-left: 1.4em; 
+	list-style: decimal;
+} 
+ul {
+	margin-left: 1.4em; 
+	list-style:square;
+} 
+img {
+	border: 0;
+}
+/*** End : CSS Reset ***/
+
+body{
+font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Helvetica, sans-serif;
+
+}
+
+#wrapper{
+	background-color: white;
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Helvetica, sans-serif;
+}
+
+.spacer{clear:both; height:1px;}
+
+
+#signUp{
+	position: absolute;
+	top:200px;
+	padding:14px;
+	font-size:12px;
+	background:#EFEFEF;
+	color : #991900;
+	width:700px;
+	/* Adds shadow to the form div */
+	-webkit-box-shadow: 0px 0px 8px 0px #000000;
+	-moz-box-shadow: 0px 0px 8px 0px #000000;
+	box-shadow: 0px 0px 8px 0px #000000;
+}
+
+
+#signUp h1 {
+font-size:14px;
+font-weight:bold;
+margin-bottom:8px;
+}
+#signUp p{
+font-size:11px;
+color:#666666;
+margin-bottom:20px;
+border-bottom:solid 1px #991900;
+padding-bottom:10px;
+}
+
+#signUp label{
+	font-weight:bold;
+	text-align:right;
+	width:300px;
+	float:left;
+	clear:left;
+	margin-right: 10px;
+}
+
+#signUp .small{
+color:#666666;
+display:block;
+font-size:11px;
+font-weight:normal;
+text-align:right;
+}
+#signUp input{
+float:left;
+font-size:12px;
+padding:4px 2px;
+border:solid 2px #D9D8D8;
+width:300px;
+margin:2px 0 20px 10px;
+}
+#signUp button{
+clear:both;
+margin-left:150px;
+width:125px;
+height:31px;
+background:#666666 url(img/button.png) no-repeat;
+text-align:center;
+line-height:31px;
+color:#FFFFFF;
+font-size:11px;
+font-weight:bold;
+}
