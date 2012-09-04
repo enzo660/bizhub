@@ -1,0 +1,60 @@
+#contentWrapper {
+	position: absolute;
+	color:red;
+	top:200px;
+}
+
+img.figure {
+	 
+	margin-left: 225px;
+}
+
+div.logoText{
+	font-style: italic;
+	margin-left: 650px;
+	font-size: 20px;
+	color: #4d4d4d;
+	margin-top: -10px;
+}
+
+div #howToCreate{
+	height: 250px;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	/* Adds shadow to the bottom of the bar */
+	-webkit-box-shadow: 0px 0px 8px 4px #000000;
+	-moz-box-shadow: 0px 0px 8px 4px #000000;
+	box-shadow: 0px 0px 8px 4px #000000;
+	/* Adds the transparent background */
+	/*background-color: rgba(1, 1, 1, 0.7);*/
+	color: rgba(1, 1, 1, 0.7);
+	background-image:url('../images/content-background.png');
+	background-repeat:repeat;
+	background-position:right top;
+}
+
+p.stepIntro{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 17px;
+	background-color:#991900;
+	margin-left: 50px;
+	margin-right: 50px;
+	color: #ffffff;
+}
+
+div.stepContent {
+	float: left;
+	width: 290px;
+	color:#00ffff;
+	margin-left: 10px;
+	margin-top: 20px;
+	font-size: 13px;
+
+}
+
+div.stepContent span{
+	font-size: 30px;
+	/*float: left;*/
+}

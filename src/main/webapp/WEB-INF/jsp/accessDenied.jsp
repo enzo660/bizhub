@@ -6,10 +6,19 @@
     <jsp:include page="htmlHead.jsp"/>
   </head>
   <body>
-    <jsp:include page="navBar.jsp"/>
-    <h1>Access Denied</h1>
-    <p class="error">
-      You do not have permission to access this page.
-    </p>
+  
+  	<div id="wrapper">
+  	
+  		<jsp:include page="navBar.jsp"/>
+  		
+	    <h1>Access Denied</h1>
+	    <p class="error">
+	      You do not have permission to access this page.
+	    </p>
+	    
+	    <jsp:include page="footer.jsp"/>
+  	
+  	</div>
+  	
   </body>
 </html>

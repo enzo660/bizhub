@@ -40,6 +40,11 @@
 
 	<!-- <mvc:view-controller path="/home" view-name="home" /> -->
 	
+	<!-- resources exclusions from servlet mapping -->
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	
 	<mvc:view-controller path="/login" view-name="login" />
 	
 	<mvc:view-controller path="/access_denied" view-name="accessDenied" />

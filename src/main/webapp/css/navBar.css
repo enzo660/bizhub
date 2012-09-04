@@ -1,0 +1,36 @@
+#topNavigation {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	right: 20px;
+	color: #ffffff;
+	height: 40px;
+	padding-top: 15px;
+	/* Adds shadow to the bottom of the bar */
+	-webkit-box-shadow: 0px 0px 8px 4px #000000;
+	-moz-box-shadow: 0px 0px 8px 4px #000000;
+	box-shadow: 0px 0px 8px 4px #000000;
+	/* Adds the transparent background */
+	background-color: rgba(1, 1, 1, 0.7);
+	color: rgba(1, 1, 1, 0.7);
+}
+#topNavigation span {
+	font-size: 25px;
+	margin-left: 15px;
+	color: white;
+}
+#topNavigation a {
+	font-size: 12px;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: white;
+	text-decoration: none;
+}
+#topNavigation a:hover {
+	color: gray;
+}
+
+
+#topNavigation #links{
+	margin-left:15px;
+}

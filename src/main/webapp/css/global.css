@@ -1,0 +1,27 @@
+/**** Begin : CSS Reset ***/
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+	padding: 0; 
+	margin: 0; 
+	font-size: 100%; 
+	font-weight: normal;
+} 
+ol {
+	margin-left: 1.4em; 
+	list-style: decimal;
+} 
+ul {
+	margin-left: 1.4em; 
+	list-style:square;
+} 
+img {
+	border: 0;
+}
+/*** End : CSS Reset ***/
+
+#wrapper{
+	background-color: white;
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Helvetica, sans-serif;
+}

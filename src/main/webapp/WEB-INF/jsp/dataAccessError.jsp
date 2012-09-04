@@ -6,11 +6,20 @@
 <jsp:include page="htmlHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navBar.jsp" />
-	<h1 class="error">Data Access Failure</h1>
-	<p>
-		Unfortunately, we were not able to process your request due to a
-		data-access failure.<br /> Please try again shortly.
-	</p>
+
+	<div id="wrapper">
+	
+		<jsp:include page="navBar.jsp" />
+		
+		<h1 class="error">Data Access Failure</h1>
+		<p>
+			Unfortunately, we were not able to process your request due to a
+			data-access failure.<br /> Please try again shortly.
+		</p>
+		
+		<jsp:include page="footer.jsp"/>
+	
+	</div>
+	
 </body>
 </html>

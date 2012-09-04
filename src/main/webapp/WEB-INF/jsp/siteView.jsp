@@ -11,45 +11,54 @@
     <jsp:include page="htmlHead.jsp"/>
   </head>
   <body>
-    <jsp:include page="navBar.jsp"/>
-    <h1>${site.name} Site</h1>
-    <table class="nameValuePairs">
-      <tr>
-        <th>Name:</th>
-        <td>${site.name}</td>
-      </tr>
-      <tr>
-        <th>Description:</th>
-        <td>${f:convertToHtmlLineBreaks(site.description)}</td>
-      </tr>
-      <tr>
-        <th>City:</th>
-        <td>${site.city}</td>
-      </tr>
-      <tr>
-        <th>State:</th>
-        <td>${site.state}</td>
-      </tr>
-      <tr>
-        <th>Bizvez site address:</th>
-        <td>${site.address}</td>
-      </tr>
-      <tr>
-        <th>Content:</th>
-        <td>${site.content}</td>
-      </tr>
-      
-      <security:authorize ifNotGranted="ROLE_ADMIN">
-      	<tr>
-	        <th>&nbsp;</th>
-	        <td style="padding-top: 10px;">
-	          <a class="button" href="<c:url value='/site_form'/>">Edit</a>
-	          <a class="button" href="<c:url value='/site_delete'/>"
-		       onclick="return confirm('Are you sure you wish to delete this site?');">Delete</a>
-	        </td>
+  
+  	<div id="wrapper">
+  	
+  		<jsp:include page="navBar.jsp"/>
+  		
+	    <h1>${site.name} Site</h1>
+	    <table class="nameValuePairs">
+	      <tr>
+	        <th>Name:</th>
+	        <td>${site.name}</td>
 	      </tr>
-      </security:authorize>
-      
-    </table>
+	      <tr>
+	        <th>Description:</th>
+	        <td>${f:convertToHtmlLineBreaks(site.description)}</td>
+	      </tr>
+	      <tr>
+	        <th>City:</th>
+	        <td>${site.city}</td>
+	      </tr>
+	      <tr>
+	        <th>State:</th>
+	        <td>${site.state}</td>
+	      </tr>
+	      <tr>
+	        <th>Bizvez site address:</th>
+	        <td>${site.address}</td>
+	      </tr>
+	      <tr>
+	        <th>Content:</th>
+	        <td>${site.content}</td>
+	      </tr>
+	      
+	      <security:authorize ifNotGranted="ROLE_ADMIN">
+	      	<tr>
+		        <th>&nbsp;</th>
+		        <td style="padding-top: 10px;">
+		          <a class="button" href="<c:url value='/site_form'/>">Edit</a>
+		          <a class="button" href="<c:url value='/site_delete'/>"
+			       onclick="return confirm('Are you sure you wish to delete this site?');">Delete</a>
+		        </td>
+		      </tr>
+	      </security:authorize>
+	      
+	    </table>
+	    
+	    <jsp:include page="footer.jsp"/>
+  	
+  	</div>
+    
   </body>
 </html>

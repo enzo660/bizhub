@@ -106,10 +106,10 @@ div #howToCreate{
 p.stepIntro{
 	margin-top: 10px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 17px;
 	background-color:#991900;
-	margin-left: 60px;
-	margin-right: 60px;
+	margin-left: 50px;
+	margin-right: 50px;
 	color: #ffffff;
 }
 
@@ -121,6 +121,11 @@ div.stepContent {
 	margin-top: 20px;
 	font-size: 13px;
 
+}
+
+div.stepContent span{
+	font-size: 30px;
+	/*float: left;*/
 }
 
 /*** Begin: Footer CSS ***/

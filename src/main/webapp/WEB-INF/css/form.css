@@ -42,6 +42,13 @@ font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Helvetica, s
 	background:#EFEFEF;
 	color : #991900;
 	width:700px;
+	/*
+	 width of the parent container = 960px
+	 width of this div + padding = 700+14*2 = 728
+	 remaining width = 960 - 728 = 232
+	 divide it between left and right sides. therefore, margin from left = 116px
+	*/
+	margin-left: 116px;
 	/* Adds shadow to the form div */
 	-webkit-box-shadow: 0px 0px 8px 0px #000000;
 	-moz-box-shadow: 0px 0px 8px 0px #000000;
@@ -86,15 +93,26 @@ border:solid 2px #D9D8D8;
 width:300px;
 margin:2px 0 20px 10px;
 }
-#signUp button{
-clear:both;
-margin-left:150px;
-width:125px;
-height:31px;
-background:#666666 url(img/button.png) no-repeat;
-text-align:center;
-line-height:31px;
-color:#FFFFFF;
-font-size:11px;
-font-weight:bold;
+
+#signUpButtonContainer{
+	width:300px;
+	float:left;
+	clear:left;
+	margin-right: 10px;
 }
+
+#signUp button{
+	clear:both;
+	width:100px;
+	height:30px;
+	background:#991900;
+	text-align:center;
+	line-height:31px;
+	color:#FFFFFF;
+	font-size:12px;
+	font-weight:bold;
+	font-style: italic;
+	float: right;
+	padding-bottom: 5px;
+}
+

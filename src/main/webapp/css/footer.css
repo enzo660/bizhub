@@ -1,0 +1,37 @@
+#footer {
+	position: fixed;
+	bottom: 0;
+	width: 960px;
+	color: #ffffff;
+	height: 20px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	/* Adds shadow to the bottom of the bar */
+	-webkit-box-shadow: 0px 0px 8px 0px #000000;
+	-moz-box-shadow: 0px 0px 8px 0px #000000;
+	box-shadow: 0px 0px 8px 0px #000000;
+	background-color: #991900;
+}
+#footer a {
+	font-size: 12px;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: white;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: gray;
+} 
+
+#footer #footerLinks{
+	float: right;
+}
+
+#footer  #compatibility{
+	float: left;
+	padding-left: 25px;
+	font-size: 11px;
+	padding-top: 4px;
+
+}

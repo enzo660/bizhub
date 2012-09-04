@@ -13,60 +13,69 @@
 <jsp:include page="htmlHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navBar.jsp" />
-	<p>${user.name} User</p>
-	<table class="nameValuePairs">
-		<tr>
-			<th>First Name:</th>
-			<td>${user.firstName}</td>
-		</tr>
-		<tr>
-			<th>Last Name:</th>
-			<td>${user.lastName}</td>
-		</tr>
-		<tr>
-			<th>Business:</th>
-			<td>${user.business}</td>
-		</tr>
-		<tr>
-			<th>Title:</th>
-			<td>${user.title}</td>
-		</tr>
-		<tr>
-			<th>Email:</th>
-			<td><a href="mailto:${user.email}">${user.email}</a></td>
-		</tr>
-		<tr>
-			<th>Password:</th>
-			<td>${f:mask(user.passwordDigest)}</td>
-		</tr>
-		<tr>
-			<th>Created:</th>
-			<td><fmt:formatDate value="${user.created}"
-					pattern="MMMMM d, yyyy hh:mma" /></td>
-		</tr>
-		<security:authorize ifAllGranted="ROLE_ADMIN">
-			<tr>
-				<th>Enabled:</th>
-				<td>${user.enabled? 'Yes' : 'No'}</td>
-			</tr>
-			<tr>
-				<th>Admin:</th>
-				<td>${user.admin? 'Yes' : 'No'}</td>
-			</tr>
-		</security:authorize>
-		<security:authorize ifNotGranted="ROLE_ADMIN">
-			<tr>
-				<th>&nbsp;</th>
-				<td style="padding-top: 10px;"><a class="button"
-					href="<c:url value='/user_form'/>">Edit</a> <a
-					class="button" href="<c:url value='/user_delete'/>"
-					onclick="return confirm('Are you sure you wish to delete this profile?');">Delete</a>
-				</td>
-			</tr>
-		</security:authorize>
-		
 
-	</table>
+	<div id="wrapper">
+	
+		<jsp:include page="navBar.jsp" />
+		
+		<p>${user.name} User</p>
+		<table class="nameValuePairs">
+			<tr>
+				<th>First Name:</th>
+				<td>${user.firstName}</td>
+			</tr>
+			<tr>
+				<th>Last Name:</th>
+				<td>${user.lastName}</td>
+			</tr>
+			<tr>
+				<th>Business:</th>
+				<td>${user.business}</td>
+			</tr>
+			<tr>
+				<th>Title:</th>
+				<td>${user.title}</td>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<td><a href="mailto:${user.email}">${user.email}</a></td>
+			</tr>
+			<tr>
+				<th>Password:</th>
+				<td>${f:mask(user.passwordDigest)}</td>
+			</tr>
+			<tr>
+				<th>Created:</th>
+				<td><fmt:formatDate value="${user.created}"
+						pattern="MMMMM d, yyyy hh:mma" /></td>
+			</tr>
+			<security:authorize ifAllGranted="ROLE_ADMIN">
+				<tr>
+					<th>Enabled:</th>
+					<td>${user.enabled? 'Yes' : 'No'}</td>
+				</tr>
+				<tr>
+					<th>Admin:</th>
+					<td>${user.admin? 'Yes' : 'No'}</td>
+				</tr>
+			</security:authorize>
+			<security:authorize ifNotGranted="ROLE_ADMIN">
+				<tr>
+					<th>&nbsp;</th>
+					<td style="padding-top: 10px;"><a class="button"
+						href="<c:url value='/user_form'/>">Edit</a> <a
+						class="button" href="<c:url value='/user_delete'/>"
+						onclick="return confirm('Are you sure you wish to delete this profile?');">Delete</a>
+					</td>
+				</tr>
+			</security:authorize>
+			
+	
+		</table>
+		
+		<jsp:include page="footer.jsp"/>
+	
+	</div>
+	
 </body>
 </html>

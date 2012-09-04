@@ -12,74 +12,83 @@
     <jsp:include page="htmlHead.jsp"/>
   </head>
   <body>
-    <jsp:include page="navBar.jsp"/>
-    <h1>Site Form</h1>
-    <form:form commandName="site">
-      <table>
-        <spring:hasBindErrors name="site">
-          <tr>
-            <th></th>
-            <td class="error">
-              Form Errors<br/>
-              <form:errors/>
-            </td>
-          </tr>
-        </spring:hasBindErrors>
-        <c:if test="${site.idSet}">
-          <tr>
-            <th>ID:</th>
-            <td>${site.id}</td>
-          </tr>
-        </c:if>
-        <tr>
-          <th><form:label path="name">Name</form:label> *:</th>
-          <td>
-            <form:input path="name" />
-			<form:errors path="name" cssClass="error"/>
-          </td>
-        </tr>
-        <tr>
-          <th><form:label path="description">Description</form:label>:</th>
-          <td>
-            <form:textarea path="description" cols="80" rows="8" />
-            <form:errors path="description" cssClass="error"/>
-          </td>
-        </tr>
-        <tr>
-          <th><form:label path="city">City</form:label> *:</th>
-          <td>
-            <form:input path="city" />
-			<form:errors path="city" cssClass="error"/>
-          </td>
-        </tr>
-        <tr>
-          <th><form:label path="state">State</form:label> *:</th>
-          <td>
-            <form:input path="state" />
-			<form:errors path="state" cssClass="error"/>
-          </td>
-        </tr>
-        <tr>
-          <th><form:label path="address">Bizvez Site Address</form:label> :</th>
-          <td>
-            <form:input path="address" />
-			<form:errors path="address" cssClass="error"/>
-          </td>
-        </tr>
-        <tr>
-          <th><form:label path="content">Content</form:label> :</th>
-          <td>
-            <form:textarea path="content" cols="80" rows="8" />
-			<form:errors path="content" cssClass="error"/>
-          </td>
-        </tr>
-        <tr>
-          <th>&nbsp;</th>
-          <td>
-            <input type="submit" value="Save"/>
-          </td>
-        </tr>
-      </table>
-    </form:form>
+  
+  	<div id="wrapper">
+  	
+  		<jsp:include page="navBar.jsp"/>
+  		
+	    <h1>Site Form</h1>
+	    <form:form commandName="site">
+	      <table>
+	        <spring:hasBindErrors name="site">
+	          <tr>
+	            <th></th>
+	            <td class="error">
+	              Form Errors<br/>
+	              <form:errors/>
+	            </td>
+	          </tr>
+	        </spring:hasBindErrors>
+	        <c:if test="${site.idSet}">
+	          <tr>
+	            <th>ID:</th>
+	            <td>${site.id}</td>
+	          </tr>
+	        </c:if>
+	        <tr>
+	          <th><form:label path="name">Name</form:label> *:</th>
+	          <td>
+	            <form:input path="name" />
+				<form:errors path="name" cssClass="error"/>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th><form:label path="description">Description</form:label>:</th>
+	          <td>
+	            <form:textarea path="description" cols="80" rows="8" />
+	            <form:errors path="description" cssClass="error"/>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th><form:label path="city">City</form:label> *:</th>
+	          <td>
+	            <form:input path="city" />
+				<form:errors path="city" cssClass="error"/>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th><form:label path="state">State</form:label> *:</th>
+	          <td>
+	            <form:input path="state" />
+				<form:errors path="state" cssClass="error"/>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th><form:label path="address">Bizvez Site Address</form:label> :</th>
+	          <td>
+	            <form:input path="address" />
+				<form:errors path="address" cssClass="error"/>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th><form:label path="content">Content</form:label> :</th>
+	          <td>
+	            <form:textarea path="content" cols="80" rows="8" />
+				<form:errors path="content" cssClass="error"/>
+	          </td>
+	        </tr>
+	        <tr>
+	          <th>&nbsp;</th>
+	          <td>
+	            <input type="submit" value="Save"/>
+	          </td>
+	        </tr>
+	      </table>
+	    </form:form>
+	    
+	    <jsp:include page="footer.jsp"/>
+  	
+  	</div>
+    
   </body>
 </html>
