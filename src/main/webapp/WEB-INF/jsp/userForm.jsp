@@ -9,7 +9,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>User Form</title>
+<title>Bizvez - The Online Business Hub</title>
 <jsp:include page="htmlHead.jsp" />
 </head>
 <body>

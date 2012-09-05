@@ -6,7 +6,7 @@
         
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <title>Bizvez</title>
+    <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/home.css'/>">
   </head>

@@ -6,8 +6,9 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <title>Bizvez - Login</title>
+    <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
   </head>
   <body>
   
@@ -15,7 +16,34 @@
   	
   		<jsp:include page="navBar.jsp"/>
   		
-	    <p>Login to Bizvez<p>
+	    <div class="genericForm">
+			<form method="" action="">
+			<h1>Login</h1>
+			<p> Enter your basic details to get started </p>
+
+			<label>Name
+			<span class="small">Enter your name</span>
+			</label>
+			<input type="text" name="name" id="name" />
+
+			<label>Email
+			<span class="small">Enter your email address. You'll use this to sign-in.</span>
+			</label>
+			<input type="text" name="email" id="email" />
+
+			<label>Password
+			</label>
+			<input type="text" name="password" id="password" />
+
+			<div id="signUpButtonContainer">
+				<button type="submit">Sign Up!</button>
+			</div>
+		
+			</form>
+		</div>
+	    
+	    
+	    
 	    <form action="<c:url value='/security_check.html'/>" method="post">
 	      <table>
 	        <c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">
