@@ -16,19 +16,35 @@
   		
   		<jsp:include page="navBar.jsp"/>
   		
-	    <security:authorize ifAllGranted="ROLE_USER">
-			<a class="button" href="<c:url value='/user'/>">My Profile</a>
-		</security:authorize>
-		<security:authorize ifAllGranted="ROLE_USER">
-			<c:choose>
-	    		<c:when test="${empty site}">
-	        		<a class="button" href="<c:url value='/site_form'/>"> Create my Site</a>
-	    		</c:when>
-	    		<c:otherwise>
-	      	 		<a class="button" href="<c:url value='/site'/>">My Site</a>
-	    		</c:otherwise>
-			</c:choose>
-		</security:authorize>
+  		<div id="welcomeMessage">
+  			<c:if test="${authUser != null}">
+			  <div class="authUserGreeting">
+			    Welcome <span class="name">${authUser}</span>!
+			  </div>
+			</c:if>
+		    <security:authorize ifAllGranted="ROLE_USER">
+				<a class="button" href="<c:url value='/user'/>">My Profile</a>
+			</security:authorize>
+			<security:authorize ifAllGranted="ROLE_USER">
+				<c:choose>
+		    		<c:when test="${empty site}">
+		        		<a class="button" href="<c:url value='/site_form'/>"> Create my Site</a>
+		    		</c:when>
+		    		<c:otherwise>
+		      	 		<a class="button" href="<c:url value='/site'/>">My Site</a>
+		    		</c:otherwise>
+				</c:choose>
+			</security:authorize>
+			<security:authorize ifAllGranted="ROLE_ADMIN">
+				<a class="button" href="<c:url value='/user_form'/>">Add User</a>
+			</security:authorize>
+			<security:authorize ifAllGranted="ROLE_ADMIN">
+				<a class="button" href="<c:url value='/users'/>">List Users</a>
+			</security:authorize>
+			<security:authorize ifAllGranted="ROLE_ADMIN">
+				<a class="button" href="<c:url value='/sites'/>">List Sites</a>
+			</security:authorize>
+  		</div>
 		
 		<div id="contentWrapper">
 

@@ -29,19 +29,3 @@
 	</span>
 	
 </div>
-
-<c:if test="${authUser != null}">
-  <div class="authUserGreeting">
-    Welcome ${authUser}!
-  </div>
-</c:if>
-
-<security:authorize ifAllGranted="ROLE_ADMIN">
-	<a class="button" href="<c:url value='/user_form'/>">Add User</a>
-</security:authorize>
-<security:authorize ifAllGranted="ROLE_ADMIN">
-	<a class="button" href="<c:url value='/users'/>">List Users</a>
-</security:authorize>
-<security:authorize ifAllGranted="ROLE_ADMIN">
-	<a class="button" href="<c:url value='/sites'/>">List Sites</a>
-</security:authorize>

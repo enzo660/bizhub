@@ -1,10 +1,9 @@
 #topNavigation {
 	position: absolute;
 	top: 10px;
-	left: 20px;
-	right: 20px;
 	color: #ffffff;
 	height: 40px;
+	width: 100%;
 	padding-top: 15px;
 	/* Adds shadow to the bottom of the bar */
 	-webkit-box-shadow: 0px 0px 8px 4px #000000;
@@ -13,6 +12,9 @@
 	/* Adds the transparent background */
 	background-color: rgba(1, 1, 1, 0.7);
 	color: rgba(1, 1, 1, 0.7);
+}
+#topNavigation #links{
+	float: right;
 }
 #topNavigation span {
 	font-size: 25px;
