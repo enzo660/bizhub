@@ -19,6 +19,10 @@
 	box-shadow: 0px 0px 8px 0px #000000;
 }
 
+.genericForm.signup{
+	top:130px;
+}
+
 
 .genericForm h1 {
 font-size:14px;
@@ -49,6 +53,7 @@ font-size:11px;
 font-weight:normal;
 text-align:right;
 }
+
 .genericForm input{
 float:left;
 font-size:12px;
@@ -56,6 +61,31 @@ padding:4px 2px;
 border:solid 2px #D9D8D8;
 width:300px;
 margin:2px 0 20px 10px;
+}
+
+.genericForm div.formValue{
+float:left;
+font-size:12px;
+width:300px;
+margin: 0 0 20px 10px;
+color: #666666;
+}
+
+.genericForm .errorsMessage{
+	color:#FF0000;
+	font-size:16px;
+	font-weight:bold;
+}
+
+.genericForm .error{
+float:right;
+color:#FF0000;
+display:block;
+font-size:14px;
+font-weight:bold;
+text-align:left;
+width:380px;
+margin-top:-20px;
 }
 
 #signUpButtonContainer{

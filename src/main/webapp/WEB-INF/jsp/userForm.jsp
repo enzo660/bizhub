@@ -9,96 +9,100 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Bizvez - The Online Business Hub</title>
-<jsp:include page="htmlHead.jsp" />
+	<title>Bizvez - The Online Business Hub</title>
+	<jsp:include page="htmlHead.jsp" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
 </head>
 <body>
 
 	<div id="wrapper">
 	
 		<jsp:include page="navBar.jsp" />
-		<h1>User Form</h1>
-		<form:form commandName="userAndPassword">
-			<table>
+		
+		<div class="genericForm signup">
+	    
+			<form:form commandName="userAndPassword">
+			
+				<c:choose>
+		    		<c:when test="${authUser == null}">
+		        		<h1>Sign Up</h1>
+						<p> Enter your basic details to get started </p>
+		    		</c:when>
+		    		<c:otherwise>
+		      	 		<p>Edit Profile Details</p>
+		    		</c:otherwise>
+				</c:choose>
+				
+				
 				<spring:hasBindErrors name="userAndPassword">
-					<tr>
-						<th></th>
-						<td class="error">Form Errors<br /> <form:errors />
-						</td>
-					</tr>
+					<div class="errorsMessage"> Please fix the errors!  </div>  <form:errors />
 				</spring:hasBindErrors>
-				<c:if test="${userAndPassword.user.idSet}">
-					<tr>
-						<th>ID:</th>
-						<td>${userAndPassword.user.id}</td>
-					</tr>
-				</c:if>
+				
+				<security:authorize ifAllGranted="ROLE_ADMIN">
+					<c:if test="${userAndPassword.user.idSet}">
+						<label>ID:</label>
+						<div class="formValue">${userAndPassword.user.id}</div>
+					</c:if>
+				</security:authorize>
+				
 				<spring:nestedPath path="user">
-					<tr>
-						<th><form:label path="firstName">First Name</form:label> *:</th>
-						<td><form:input path="firstName" /> <form:errors
-								path="firstName" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<th><form:label path="lastName">Last Name</form:label> *:</th>
-						<td><form:input path="lastName" /> <form:errors
-								path="lastName" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<th><form:label path="business">Business</form:label>:</th>
-						<td><form:input path="business" /> <form:errors
-								path="business" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<th><form:label path="title">Title</form:label>:</th>
-						<td><form:input path="title" /> <form:errors path="title"
-								cssClass="error" /></td>
-					</tr>
-					<tr>
-						<th><form:label path="email">Email</form:label> *:</th>
-						<td><form:input path="email" /> <form:errors path="email"
-								cssClass="error" /></td>
-					</tr>
+				
+					<form:label path="firstName">First Name *: <span class="small">Enter your first name</span> </form:label> 
+					<form:input path="firstName" /> 
+					<form:errors path="firstName" cssClass="error" />
+					
+					<form:label path="lastName">Last Name *: <span class="small">Enter your last name</span> </form:label>  
+					<form:input path="lastName" /> 
+					<form:errors path="lastName" cssClass="error" />
+					
+					<form:label path="business">Business : <span class="small">Enter the name of your business</span> </form:label>
+					<form:input path="business" /> 
+					<form:errors path="business" cssClass="error" />
+					
+					<form:label path="title">Title : <span class="small">Enter your title (optional)</span> </form:label> 
+					<form:input path="title" />
+					<form:errors path="title" cssClass="error" />
+					
+					<form:label path="email">Email *: <span class="small">Enter your email. You'll use this to log in</span> </form:label>  
+					<form:input path="email" /> 
+					<form:errors path="email" cssClass="error" />
+					
 					<c:if test="${not profile}">
 						<security:authorize ifAllGranted="ROLE_ADMIN">
-							<tr>
-								<th><form:label path="enabled">Enabled</form:label> *:</th>
-								<td>
-									<form:radiobutton path="enabled" value="true" /> Yes &nbsp;&nbsp;&nbsp; 
-									<form:radiobutton path="enabled" value="false" /> No 
-									<form:errors path="enabled" cssClass="error" />
-								</td>
-							</tr>
-							<tr>
-								<th><form:label path="admin">Admin</form:label> *:</th>
-								<td>
-									<form:radiobutton path="admin" value="true" /> Yes &nbsp;&nbsp;&nbsp; 
-									<form:radiobutton path="admin" value="false" /> No 
-								<form:errors path="admin" cssClass="error" /></td>
-							</tr>
+						
+							<form:label path="enabled">Enabled *: </form:label> 
+							<form:radiobutton path="enabled" value="true" /> Yes &nbsp;&nbsp;&nbsp; 
+							<form:radiobutton path="enabled" value="false" /> No 
+							<form:errors path="enabled" cssClass="error" />
+								
+							<form:label path="admin">Admin *: </form:label> 
+							<form:radiobutton path="admin" value="true" /> Yes &nbsp;&nbsp;&nbsp; 
+							<form:radiobutton path="admin" value="false" /> No 
+							<form:errors path="admin" cssClass="error" />
+							
 						</security:authorize>
 					</c:if>
+				
 				</spring:nestedPath>
+				
 				<c:set var="passwordRequired"
 					value="${userAndPassword.user.idSet? '' : '*'}" />
-				<tr>
-					<th><form:label path="password">Password</form:label>
-						${passwordRequired}:</th>
-					<td><form:password path="password" /> <form:errors
-							path="password" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<th><form:label path="passwordVerification">Password Verification</form:label>
-						${passwordRequired}:</th>
-					<td><form:password path="passwordVerification" /> <form:errors
-							path="passwordVerification" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<th>&nbsp;</th>
-					<td><input type="submit" value="Save" /></td>
-				</tr>
-			</table>
-		</form:form>
+					
+				<form:label path="password">Password ${passwordRequired}: <span class="small">Create a password for Bizvez</span></form:label> 
+				<form:password path="password" /> 
+				<form:errors path="password" cssClass="error" />
+				
+				<form:label path="passwordVerification">Password Verification ${passwordRequired}: <span class="small">Enter the password again</span> </form:label> 
+				<form:password path="passwordVerification" /> 
+				<form:errors path="passwordVerification" cssClass="error" />
+				
+				<div id="signUpButtonContainer">
+					<button type="submit">Save</button>
+				</div>
+				
+			</form:form>
+			
+		</div>
 		
 		<jsp:include page="footer.jsp"/>
 	
