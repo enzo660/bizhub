@@ -23,6 +23,16 @@
 	top:130px;
 }
 
+.genericForm.signup.site{
+	width:800px;
+	/*
+	 width of the parent container = 960px
+	 width of this div + padding = 800+14*2 = 828
+	 remaining width = 960 - 828 = 132
+	 divide it between left and right sides. therefore, margin from left = 66px
+	*/
+	margin-left: 66px;
+}
 
 .genericForm h1 {
 font-size:14px;
@@ -46,12 +56,21 @@ padding-bottom:10px;
 	margin-right: 10px;
 }
 
+.genericForm.signup.site label{
+	width:400px;
+}
+
 .genericForm .small{
 color:#666666;
 display:block;
 font-size:11px;
 font-weight:normal;
 text-align:right;
+}
+
+.genericForm .small .sampleLink{
+	font-weight:bold;
+	color:#000000;
 }
 
 .genericForm input{

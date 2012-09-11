@@ -10,6 +10,7 @@
   <head>
     <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
   </head>
   <body>
   
@@ -17,74 +18,55 @@
   	
   		<jsp:include page="navBar.jsp"/>
   		
-	    <h1>Site Form</h1>
-	    <form:form commandName="site">
-	      <table>
-	        <spring:hasBindErrors name="site">
-	          <tr>
-	            <th></th>
-	            <td class="error">
-	              Form Errors<br/>
-	              <form:errors/>
-	            </td>
-	          </tr>
-	        </spring:hasBindErrors>
-	        <c:if test="${site.idSet}">
-	          <tr>
-	            <th>ID:</th>
-	            <td>${site.id}</td>
-	          </tr>
-	        </c:if>
-	        <tr>
-	          <th><form:label path="name">Name</form:label> *:</th>
-	          <td>
-	            <form:input path="name" />
-				<form:errors path="name" cssClass="error"/>
-	          </td>
-	        </tr>
-	        <tr>
-	          <th><form:label path="description">Description</form:label>:</th>
-	          <td>
-	            <form:textarea path="description" cols="80" rows="8" />
-	            <form:errors path="description" cssClass="error"/>
-	          </td>
-	        </tr>
-	        <tr>
-	          <th><form:label path="city">City</form:label> *:</th>
-	          <td>
-	            <form:input path="city" />
-				<form:errors path="city" cssClass="error"/>
-	          </td>
-	        </tr>
-	        <tr>
-	          <th><form:label path="state">State</form:label> *:</th>
-	          <td>
-	            <form:input path="state" />
-				<form:errors path="state" cssClass="error"/>
-	          </td>
-	        </tr>
-	        <tr>
-	          <th><form:label path="address">Bizvez Site Address</form:label> :</th>
-	          <td>
-	            <form:input path="address" />
-				<form:errors path="address" cssClass="error"/>
-	          </td>
-	        </tr>
-	        <tr>
-	          <th><form:label path="content">Content</form:label> :</th>
-	          <td>
-	            <form:textarea path="content" cols="80" rows="8" />
-				<form:errors path="content" cssClass="error"/>
-	          </td>
-	        </tr>
-	        <tr>
-	          <th>&nbsp;</th>
-	          <td>
-	            <input type="submit" value="Save"/>
-	          </td>
-	        </tr>
-	      </table>
-	    </form:form>
+  		<div class="genericForm signup site">
+  		
+  			<form:form commandName="site">
+  			
+  				<h1>Site Details</h1>
+  				<p></p>
+  				
+  				<spring:hasBindErrors name="site">
+					<div class="errorsMessage"> Please fix the errors!  </div>  <form:errors />
+	        	</spring:hasBindErrors>
+	        	
+	        	<security:authorize ifAllGranted="ROLE_ADMIN">
+					<c:if test="${site.idSet}">
+						<label>ID:</label>
+						<div class="formValue">${site.id}</div>
+					</c:if>
+				</security:authorize>
+				
+				<form:label path="name">Site Name *: <span class="small">Enter a name for your site. Could be the same as the name for your business.</span> </form:label> 
+				<form:input path="name" /> 
+				<form:errors path="name" cssClass="error" />
+				
+				<form:label path="description">Description : <span class="small">Enter a brief description for your site. (optional)</span> </form:label> 
+				<form:input path="description" /> 
+				<form:errors path="description" cssClass="error" />
+				
+				<form:label path="city">City *: <span class="small">Enter the name of the city your business is in.</span> </form:label> 
+				<form:input path="city" /> 
+				<form:errors path="city" cssClass="error" />
+				
+				<form:label path="state">State *: <span class="small">Enter the name of the state your business is in.</span> </form:label> 
+				<form:input path="state" /> 
+				<form:errors path="state" cssClass="error" />
+				
+				<form:label path="address">Bizvez Site Address : <span class="small">This is how your site will be addressed. If you enter 'joe-realtor', your address will be <span class="sampleLink">www.bizvez.com/site/joe-realtor</span></span> </form:label> 
+				<form:input path="address" /> 
+				<form:errors path="address" cssClass="error" />
+				
+				<form:label path="content">Content : </form:label> 
+				<form:input path="content" /> 
+				<form:errors path="content" cssClass="error" />
+				
+				<div id="signUpButtonContainer">
+					<button type="submit">Save</button>
+				</div>
+  			
+  			</form:form>
+  		
+  		</div>
 	    
 	    <jsp:include page="footer.jsp"/>
   	

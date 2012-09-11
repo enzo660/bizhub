@@ -9,8 +9,9 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>${user.name} User</title>
+<title>Bizvez - The Online Business Hun</title>
 <jsp:include page="htmlHead.jsp" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
 </head>
 <body>
 
@@ -18,61 +19,52 @@
 	
 		<jsp:include page="navBar.jsp" />
 		
-		<p>${user.name} User</p>
-		<table class="nameValuePairs">
-			<tr>
-				<th>First Name:</th>
-				<td>${user.firstName}</td>
-			</tr>
-			<tr>
-				<th>Last Name:</th>
-				<td>${user.lastName}</td>
-			</tr>
-			<tr>
-				<th>Business:</th>
-				<td>${user.business}</td>
-			</tr>
-			<tr>
-				<th>Title:</th>
-				<td>${user.title}</td>
-			</tr>
-			<tr>
-				<th>Email:</th>
-				<td><a href="mailto:${user.email}">${user.email}</a></td>
-			</tr>
-			<tr>
-				<th>Password:</th>
-				<td>${f:mask(user.passwordDigest)}</td>
-			</tr>
-			<tr>
-				<th>Created:</th>
-				<td><fmt:formatDate value="${user.created}"
-						pattern="MMMMM d, yyyy hh:mma" /></td>
-			</tr>
-			<security:authorize ifAllGranted="ROLE_ADMIN">
-				<tr>
-					<th>Enabled:</th>
-					<td>${user.enabled? 'Yes' : 'No'}</td>
-				</tr>
-				<tr>
-					<th>Admin:</th>
-					<td>${user.admin? 'Yes' : 'No'}</td>
-				</tr>
-			</security:authorize>
-			<security:authorize ifNotGranted="ROLE_ADMIN">
-				<tr>
-					<th>&nbsp;</th>
-					<td style="padding-top: 10px;"><a class="button"
-						href="<c:url value='/user_form'/>">Edit</a> <a
-						class="button" href="<c:url value='/user_delete'/>"
-						onclick="return confirm('Are you sure you wish to delete this profile?');">Delete</a>
-					</td>
-				</tr>
+		<div class="genericForm">
+			<h1>${user.name}</h1>
+			<p></p>
+			
+			<label>First Name:</label>
+			<div class="formValue">${user.firstName}</div>
+			
+			<label>Last Name:</label>
+			<div class="formValue">${user.lastName}</div>
+			
+			<label>Business:</label>
+			<div class="formValue">${user.business}</div>
+			
+			<label>Title:</label>
+			<div class="formValue">${user.title}</div>
+			
+			<label>Email:</label>
+			<div class="formValue"><a href="mailto:${user.email}">${user.email}</a></div>
+			
+			<label>Password:</label>
+			<div class="formValue">${f:mask(user.passwordDigest)}</div>
+			
+			<label>Created:</label>
+			<div class="formValue"><fmt:formatDate value="${user.created}"
+							pattern="MMMMM d, yyyy hh:mma" /></div>
+							
+			<security:authorize ifAllGranted="ROLE_ADMIN">			
+				<label>Enabled:</label>
+				<div class="formValue">${user.enabled? 'Yes' : 'No'}</div>			
+				<label>Admin:</label>
+				<div class="formValue">${user.admin? 'Yes' : 'No'}</div>			
 			</security:authorize>
 			
-	
-		</table>
-		
+			<security:authorize ifNotGranted="ROLE_ADMIN">
+				<label></label>
+				<div class="formValue">
+					<a class="button" href="<c:url value='/user_form'/>">Edit</a>
+					<a
+						class="button" href="<c:url value='/user_delete'/>"
+						onclick="return confirm('Are you sure you wish to delete this profile?');">Delete
+					</a>	
+				</div>
+			</security:authorize>
+
+		</div>
+			
 		<jsp:include page="footer.jsp"/>
 	
 	</div>
