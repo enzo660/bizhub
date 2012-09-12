@@ -7,6 +7,7 @@
 	color : #991900;
 	width:700px;
 	/*
+	 Calculation to place the box in the center 
 	 width of the parent container = 960px
 	 width of this div + padding = 700+14*2 = 728
 	 remaining width = 960 - 728 = 232
@@ -23,15 +24,16 @@
 	top:130px;
 }
 
-.genericForm.signup.site{
-	width:800px;
+.genericForm.view{
+	width:600px;
 	/*
+	Calculation to place the box in the center 
 	 width of the parent container = 960px
-	 width of this div + padding = 800+14*2 = 828
-	 remaining width = 960 - 828 = 132
-	 divide it between left and right sides. therefore, margin from left = 66px
+	 width of this div + padding = 600+14*2 = 628
+	 remaining width = 960 - 628 = 332
+	 divide it between left and right sides. therefore, margin from left = 166px
 	*/
-	margin-left: 66px;
+	margin-left: 166px;
 }
 
 .genericForm h1 {
@@ -56,8 +58,8 @@ padding-bottom:10px;
 	margin-right: 10px;
 }
 
-.genericForm.signup.site label{
-	width:400px;
+.genericForm.view label{
+	width:200px;
 }
 
 .genericForm .small{

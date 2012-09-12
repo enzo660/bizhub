@@ -19,7 +19,7 @@
 	
 		<jsp:include page="navBar.jsp" />
 		
-		<div class="genericForm">
+		<div class="genericForm view">
 			<h1>${user.name}</h1>
 			<p></p>
 			

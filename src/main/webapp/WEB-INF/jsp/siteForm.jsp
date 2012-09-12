@@ -10,7 +10,7 @@
   <head>
     <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/siteForm.css'/>">
   </head>
   <body>
   
@@ -59,6 +59,8 @@
 				<form:label path="content">Content : </form:label> 
 				<form:input path="content" /> 
 				<form:errors path="content" cssClass="error" />
+				
+				<a id="editorLink">Show Editor!</a>
 				
 				<div id="signUpButtonContainer">
 					<button type="submit">Save</button>

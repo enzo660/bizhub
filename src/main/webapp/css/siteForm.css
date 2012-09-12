@@ -1,0 +1,22 @@
+@import url(form.css);
+
+.genericForm.signup.site label{
+	width:400px;
+}
+
+.genericForm.signup.site{
+	width:800px;
+	/*
+	Calculation to place the box in the center 
+	 width of the parent container = 960px
+	 width of this div + padding = 800+14*2 = 828
+	 remaining width = 960 - 828 = 132
+	 divide it between left and right sides. therefore, margin from left = 66px
+	*/
+	margin-left: 66px;
+}
+
+.genericForm #editorLink{
+	float:left;
+	clear:left;
+}
