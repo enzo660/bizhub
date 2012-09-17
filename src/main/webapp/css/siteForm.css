@@ -20,3 +20,11 @@
 	float:left;
 	clear:left;
 }
+
+#siteFormMain #contentDiv{
+	display:none;
+}
+
+#siteFormMain #closeEditorLink{
+	display: none;
+}

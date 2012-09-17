@@ -11,6 +11,8 @@
     <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/siteForm.css'/>">
+    <script src="<c:url value='/js/siteForm.js'/>"></script>
+    <script src="<c:url value='/js/ckeditor/ckeditor.js'/>"></script>
   </head>
   <body>
   
@@ -18,49 +20,54 @@
   	
   		<jsp:include page="navBar.jsp"/>
   		
-  		<div class="genericForm signup site">
+  		<div id="siteFormMain" class="genericForm signup site">
   		
-  			<form:form commandName="site">
+  			<form:form commandName="site" onsubmit="return addContent()" >
   			
-  				<h1>Site Details</h1>
-  				<p></p>
+  				<div id="detailsDiv">
+  					<h1>Site Details</h1>
+	  				<p></p>
+	  				
+	  				<spring:hasBindErrors name="site">
+						<div class="errorsMessage"> Please fix the errors!  </div>  <form:errors />
+		        	</spring:hasBindErrors>
+		        	
+		        	<security:authorize ifAllGranted="ROLE_ADMIN">
+						<c:if test="${site.idSet}">
+							<label>ID:</label>
+							<div class="formValue">${site.id}</div>
+						</c:if>
+					</security:authorize>
+					
+					<form:label path="name">Site Name *: <span class="small">Enter a name for your site. Could be the same as the name for your business.</span> </form:label> 
+					<form:input path="name" /> 
+					<form:errors path="name" cssClass="error" />
+					
+					<form:label path="description">Description : <span class="small">Enter a brief description for your site. (optional)</span> </form:label> 
+					<form:input path="description" /> 
+					<form:errors path="description" cssClass="error" />
+					
+					<form:label path="city">City *: <span class="small">Enter the name of the city your business is in.</span> </form:label> 
+					<form:input path="city" /> 
+					<form:errors path="city" cssClass="error" />
+					
+					<form:label path="state">State *: <span class="small">Enter the name of the state your business is in.</span> </form:label> 
+					<form:input path="state" /> 
+					<form:errors path="state" cssClass="error" />
+					
+					<form:label path="address">Bizvez Site Address : <span class="small">This is how your site will be addressed. If you enter 'joe-realtor', your address will be <span class="sampleLink">www.bizvez.com/site/joe-realtor</span></span> </form:label> 
+					<form:input path="address" /> 
+					<form:errors path="address" cssClass="error" />
+  				</div>
   				
-  				<spring:hasBindErrors name="site">
-					<div class="errorsMessage"> Please fix the errors!  </div>  <form:errors />
-	        	</spring:hasBindErrors>
-	        	
-	        	<security:authorize ifAllGranted="ROLE_ADMIN">
-					<c:if test="${site.idSet}">
-						<label>ID:</label>
-						<div class="formValue">${site.id}</div>
-					</c:if>
-				</security:authorize>
+				<div id="contentDiv">
+					<form:textarea id="content" path="content"/> 
+					<form:errors path="content" cssClass="error" />
+				</div>
 				
-				<form:label path="name">Site Name *: <span class="small">Enter a name for your site. Could be the same as the name for your business.</span> </form:label> 
-				<form:input path="name" /> 
-				<form:errors path="name" cssClass="error" />
 				
-				<form:label path="description">Description : <span class="small">Enter a brief description for your site. (optional)</span> </form:label> 
-				<form:input path="description" /> 
-				<form:errors path="description" cssClass="error" />
-				
-				<form:label path="city">City *: <span class="small">Enter the name of the city your business is in.</span> </form:label> 
-				<form:input path="city" /> 
-				<form:errors path="city" cssClass="error" />
-				
-				<form:label path="state">State *: <span class="small">Enter the name of the state your business is in.</span> </form:label> 
-				<form:input path="state" /> 
-				<form:errors path="state" cssClass="error" />
-				
-				<form:label path="address">Bizvez Site Address : <span class="small">This is how your site will be addressed. If you enter 'joe-realtor', your address will be <span class="sampleLink">www.bizvez.com/site/joe-realtor</span></span> </form:label> 
-				<form:input path="address" /> 
-				<form:errors path="address" cssClass="error" />
-				
-				<form:label path="content">Content : </form:label> 
-				<form:input path="content" /> 
-				<form:errors path="content" cssClass="error" />
-				
-				<a id="editorLink">Show Editor!</a>
+				<a id="showEditorLink">Show Editor!</a>
+				<a id="closeEditorLink">Close Editor!</a>
 				
 				<div id="signUpButtonContainer">
 					<button type="submit">Save</button>
