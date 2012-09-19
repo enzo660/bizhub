@@ -25,6 +25,10 @@
 	display:none;
 }
 
-#siteFormMain #closeEditorLink{
+#siteFormMain #closeEditorContainer{
 	display: none;
+}
+
+#siteFormMain #closeEditor{
+	width:200px;
 }

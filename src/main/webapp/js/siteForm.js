@@ -6,7 +6,7 @@ $(document).ready(function(){
 		$('#detailsDiv').toggle();
 		$('#contentDiv').toggle();
 		$("#showEditorLink").toggle();
-		$("#closeEditorLink").toggle();
+		$("#closeEditorContainer").toggle();
 		$('#siteFormMain').removeClass("genericForm");
 		CKEDITOR.replace( 'content', {
 
@@ -14,13 +14,13 @@ $(document).ready(function(){
 		//$('#cke_contents_content').addClass("ckEditorHeight");
 	});
 	
-	$("#closeEditorLink").click(function(){
+	$("#closeEditorContainer").click(function(){
 		$('#topNavigation').toggle();
 		$('#footer').toggle();
 		$('#detailsDiv').toggle();
 		$('#contentDiv').toggle();
 		$("#showEditorLink").toggle();
-		$("#closeEditorLink").toggle();
+		$("#closeEditorContainer").toggle();
 		$('#siteFormMain').addClass("genericForm");
 	});
 	

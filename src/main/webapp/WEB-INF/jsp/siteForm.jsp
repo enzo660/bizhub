@@ -67,10 +67,13 @@
 				
 				
 				<a id="showEditorLink">Show Editor!</a>
-				<a id="closeEditorLink">Close Editor!</a>
 				
 				<div id="signUpButtonContainer">
 					<button type="submit">Save</button>
+				</div>
+  			
+  				<div id="closeEditorContainer">
+					<a class="mainLink"> Go back to Site Details </a>
 				</div>
   			
   			</form:form>

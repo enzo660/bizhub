@@ -13,25 +13,20 @@
 }
 
 #welcomeMessage a{
-	color:#991900;
+/* 	color:#991900;
 	text-decoration:none;
-	
-	/* border-right-color: #4d4d4d;
-	border-right-width: 1px;
-	border-right-style: solid;
-	padding-right: 5px; */
 	
 	border-bottom-color: #DFDFDF;
 	border-bottom-width: 5px;
 	border-bottom-style: solid;
-	
+	 */
 }
 
 #welcomeMessage a:hover{
-	color:#4d4d4d;
+/* 	color:#4d4d4d;
 	font-weight: bold;
 	text-decoration:none;
-	border-bottom-color: #991900;
+	border-bottom-color: #991900; */
 }
 
 #contentWrapper {
