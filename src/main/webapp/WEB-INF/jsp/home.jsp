@@ -56,7 +56,7 @@
 				<p class="stepIntro">Want to exhibit your business online? Create an address on Bizvez in few clicks.</p>
 
 				<div id="step1" class="stepContent">			
-					<p> <span> 1. </span> Click on the 'Tour' link in the bar at the top if you'd a quick tour.<p>
+					<p> <span> 1. </span> Click on the 'Tour' link in the bar at the top if you'd like a quick tour.<p>
 					<p>Create an account using your email address. </p>	
 				</div>
 

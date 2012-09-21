@@ -65,11 +65,12 @@
 					<form:errors path="content" cssClass="error" />
 				</div>
 				
+<!-- <div id="showEditorContainer"> -->
+					<a id="showEditorLink" class="button redShade" >Show Editor!</a>
+<!-- 				</div> -->
 				
-				<a id="showEditorLink">Show Editor!</a>
-				
-				<div id="signUpButtonContainer">
-					<button type="submit">Save</button>
+				<div id="siteFormSaveContainer">
+					<button type="submit" class="siteFormSave">Save</button>
 				</div>
   			
   				<div id="closeEditorContainer">

@@ -9,6 +9,7 @@
     <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
+    <script src="<c:url value='/js/login.js'/>"></script>
   </head>
   <body>
   
@@ -18,7 +19,7 @@
   		
 	    <div class="genericForm">
 	    
-			<form action="<c:url value='/security_check.html'/>" method="post">
+			<form action="<c:url value='/security_check.html'/>" method="post" id="loginForm">
 			
 				<!-- To show errors during login  -->
 				<c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">        
@@ -51,7 +52,7 @@
 	            id="_spring_security_remember_me"/>
 	
 				<div id="signUpButtonContainer">
-					<button type="submit">Login</button>
+					<a id="showEditorLink" class="button redShade login" >Show Editor!</a>
 				</div>
 		
 			</form>

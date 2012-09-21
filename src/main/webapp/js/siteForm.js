@@ -5,6 +5,7 @@ $(document).ready(function(){
 		$('#footer').toggle();	
 		$('#detailsDiv').toggle();
 		$('#contentDiv').toggle();
+		//$("#showEditorContainer").toggle();
 		$("#showEditorLink").toggle();
 		$("#closeEditorContainer").toggle();
 		$('#siteFormMain').removeClass("genericForm");
@@ -19,6 +20,7 @@ $(document).ready(function(){
 		$('#footer').toggle();
 		$('#detailsDiv').toggle();
 		$('#contentDiv').toggle();
+		//$("#showEditorContainer").toggle();
 		$("#showEditorLink").toggle();
 		$("#closeEditorContainer").toggle();
 		$('#siteFormMain').addClass("genericForm");

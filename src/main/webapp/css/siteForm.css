@@ -27,8 +27,47 @@
 
 #siteFormMain #closeEditorContainer{
 	display: none;
+	position: relative;
+	top: 10px;
+	float: left;
 }
 
 #siteFormMain #closeEditor{
 	width:200px;
+}
+
+#detailsDiv{
+	height:350px;
+}
+
+/* #showEditorContainer{
+	height: 20px;
+	width: 60%;
+	Adds shadow to the bottom of the bar
+	-webkit-box-shadow: 0px 0px 8px 4px #000000;
+	-moz-box-shadow: 0px 0px 8px 4px #000000;
+	box-shadow: 0px 0px 8px 4px #000000;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	background-color: #D9D8D8;
+} */
+
+#siteFormSaveContainer{
+	float:right;
+}
+
+.siteFormSave{
+	width:100px;
+	height:30px;
+	background:#DE0019;
+	text-align:center;
+	line-height:31px;
+	color:#FFFFFF;
+	font-size:12px;
+	font-weight:bold;
+	font-style: italic;
+	padding-bottom: 5px;
+	margin-top: 10px;
+	margin-right: 0px;
 }

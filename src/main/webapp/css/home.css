@@ -13,7 +13,7 @@
 }
 
 #welcomeMessage a{
-/* 	color:#991900;
+/* 	color:#DE0019;
 	text-decoration:none;
 	
 	border-bottom-color: #DFDFDF;
@@ -26,7 +26,7 @@
 /* 	color:#4d4d4d;
 	font-weight: bold;
 	text-decoration:none;
-	border-bottom-color: #991900; */
+	border-bottom-color: #DE0019; */
 }
 
 #contentWrapper {
@@ -75,7 +75,7 @@ p.stepIntro{
 div.stepContent {
 	float: left;
 	width: 290px;
-	color:#991900;
+	color:#DE0019;
 	margin-left: 10px;
 	margin-top: 20px;
 	font-size: 13px;

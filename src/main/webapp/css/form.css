@@ -4,7 +4,7 @@
 	padding:14px;
 	font-size:12px;
 	background:#EFEFEF;
-	color : #991900;
+	color : #DE0019;
 	width:700px;
 	/*
 	 Calculation to place the box in the center 
@@ -45,7 +45,7 @@ margin-bottom:8px;
 font-size:11px;
 color:#666666;
 margin-bottom:20px;
-border-bottom:solid 1px #991900;
+border-bottom:solid 1px #DE0019;
 padding-bottom:10px;
 }
 
@@ -114,11 +114,11 @@ margin-top:-20px;
 	margin-right: 75px;
 }
 
-.genericForm button{
+/* .genericForm button{
 	clear:both;
 	width:100px;
 	height:30px;
-	background:#991900;
+	background:#DE0019;
 	text-align:center;
 	line-height:31px;
 	color:#FFFFFF;
@@ -127,5 +127,26 @@ margin-top:-20px;
 	font-style: italic;
 	float: right;
 	padding-bottom: 5px;
+} */
+
+.button {;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 7px;
+    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    -webkit-border-radius: 7px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
 }
 
+.redShade {
+    background:-moz-linear-gradient(center top , #f40000, #cc0000);
+    background: -webkit-gradient(linear, center top, center bottom, from(#f40000), to(#cc0000));
+}
