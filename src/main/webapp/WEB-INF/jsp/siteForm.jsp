@@ -22,7 +22,7 @@
   		
   		<div id="siteFormMain" class="genericForm signup site">
   		
-  			<form:form commandName="site" onsubmit="return addContent()" >
+  			<form:form commandName="site" id="siteForm" >
   			
   				<div id="detailsDiv">
   					<h1>Site Details</h1>
@@ -65,13 +65,13 @@
 					<form:errors path="content" cssClass="error" />
 				</div>
 				
-<!-- <div id="showEditorContainer"> -->
-					<a id="showEditorLink" class="button redShade" >Show Editor!</a>
-<!-- 				</div> -->
+				<a id="showEditorLink" class="button greenShade" >Edit Site Content</a>
 				
-				<div id="siteFormSaveContainer">
+<!-- 				<div id="siteFormSaveContainer">
 					<button type="submit" class="siteFormSave">Save</button>
-				</div>
+				</div> -->
+				
+				<a id="siteSaveButton" class="button redShade saveButtonOnDetailsPage" >Save</a>
   			
   				<div id="closeEditorContainer">
 					<a class="mainLink"> Go back to Site Details </a>

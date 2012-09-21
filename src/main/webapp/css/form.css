@@ -156,3 +156,16 @@ margin-top:-20px;
     background:-moz-linear-gradient(center top , #DE0019, #cc0000);
     background: -webkit-gradient(linear, center top, center bottom, from(#DE0019), to(#cc0000));
 }
+
+.greenShade {
+    background:-moz-linear-gradient(center top , #78FE47, #98FF72);
+    background: -webkit-gradient(linear, center top, center bottom, from(#78FE47), to(#98FF72));
+}
+
+a.greenShade{
+	color:#666666;
+}
+
+a.greenShade:hover{
+	color:#9A9A9A;
+}
