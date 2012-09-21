@@ -9,6 +9,7 @@
     <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/login.css'/>">
     <script src="<c:url value='/js/login.js'/>"></script>
   </head>
   <body>
@@ -22,18 +23,19 @@
 			<form action="<c:url value='/security_check.html'/>" method="post" id="loginForm">
 			
 				<!-- To show errors during login  -->
-				<c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">        
-		            <strong>	
-		            	Error:       
-		                <spring:message code="loginError.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}" 
-		                text="Your login attempt was not successful, please try again."/>
-		            </strong><br/>
-		            <spring:message code="loginErrorExtra.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}" 
-		                text="Reason: ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}"/>
-		            <c:set scope="session" var="SPRING_SECURITY_LAST_EXCEPTION" value="${null}"/>	            
-		        </c:if>
-			
-				<h1>Login</h1>
+				<c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">
+					<div>
+						<strong> Error: <spring:message
+								code="loginError.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}"
+								text="Your login attempt was not successful, please try again." />
+						</strong><br />
+						<spring:message
+							code="loginErrorExtra.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}"
+							text="Reason: ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}" />
+						<c:set scope="session" var="SPRING_SECURITY_LAST_EXCEPTION"
+							value="${null}" />
+					</div>
+				</c:if>
 	
 				<label>Email
 				<span class="small">Enter your email address registered with Bizvez.</span>
@@ -51,8 +53,8 @@
 				<input type="checkbox" name="_spring_security_remember_me" 
 	            id="_spring_security_remember_me"/>
 	
-				<div id="signUpButtonContainer">
-					<a id="showEditorLink" class="button redShade login" >Show Editor!</a>
+				<div id="loginButtonContainer">
+					<a id="loginButton" class="button redShade" >Login</a>
 				</div>
 		
 			</form>
