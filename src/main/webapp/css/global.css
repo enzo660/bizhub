@@ -29,7 +29,7 @@ img {
 a.mainLink{
 	color:#DE0019;
 	text-decoration:none;
-	
+	cursor: pointer;
 	/* border-right-color: #4d4d4d;
 	border-right-width: 1px;
 	border-right-style: solid;
