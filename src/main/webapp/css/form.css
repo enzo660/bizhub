@@ -147,6 +147,11 @@ margin-top:-20px;
     text-decoration: none;
 }
 
+.button:hover {
+    color: #CDCDCD;
+    text-decoration: none;
+}
+
 .redShade {
     background:-moz-linear-gradient(center top , #DE0019, #cc0000);
     background: -webkit-gradient(linear, center top, center bottom, from(#DE0019), to(#cc0000));
