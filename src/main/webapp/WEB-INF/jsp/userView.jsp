@@ -12,12 +12,15 @@
 <title>Bizvez - The Online Business Hun</title>
 <jsp:include page="htmlHead.jsp" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/userView.css'/>">
 </head>
 <body>
 
 	<div id="wrapper">
 	
 		<jsp:include page="navBar.jsp" />
+		
+		<a class="mainLink userViewGoHomeLink" href="<c:url value='/home'/>">Go Home</a>
 		
 		<div class="genericForm view">
 			<h1>${user.name}</h1>
@@ -55,9 +58,9 @@
 			<security:authorize ifNotGranted="ROLE_ADMIN">
 				<label></label>
 				<div class="formValue">
-					<a class="button" href="<c:url value='/user_form'/>">Edit</a>
+					<a class="button redShade" href="<c:url value='/user_form'/>">Edit</a>
 					<a
-						class="button" href="<c:url value='/user_delete'/>"
+						class="button redShade" href="<c:url value='/user_delete'/>"
 						onclick="return confirm('Are you sure you wish to delete this profile?');">Delete
 					</a>	
 				</div>

@@ -67,10 +67,6 @@
 				
 				<a id="showEditorLink" class="button greenShade" >Edit Site Content</a>
 				
-<!-- 				<div id="siteFormSaveContainer">
-					<button type="submit" class="siteFormSave">Save</button>
-				</div> -->
-				
 				<a id="siteSaveButton" class="button redShade saveButtonOnDetailsPage" >Save</a>
   			
   				<div id="closeEditorContainer">

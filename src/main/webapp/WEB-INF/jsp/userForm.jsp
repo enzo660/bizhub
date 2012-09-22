@@ -12,6 +12,8 @@
 	<title>Bizvez - The Online Business Hub</title>
 	<jsp:include page="htmlHead.jsp" />
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
+	 <link rel="stylesheet" type="text/css" href="<c:url value='/css/userForm.css'/>">
+	 <script src="<c:url value='/js/userForm.js'/>"></script>
 </head>
 <body>
 
@@ -21,7 +23,7 @@
 		
 		<div class="genericForm signup">
 	    
-			<form:form commandName="userAndPassword">
+			<form:form commandName="userAndPassword" id="userForm">
 			
 				<c:choose>
 		    		<c:when test="${authUser == null}">
@@ -29,7 +31,7 @@
 						<p> Enter your basic details to get started </p>
 		    		</c:when>
 		    		<c:otherwise>
-		      	 		<p>Edit Profile Details</p>
+		      	 		<h1>Edit Profile Details</h1>
 		    		</c:otherwise>
 				</c:choose>
 				
@@ -96,9 +98,7 @@
 				<form:password path="passwordVerification" /> 
 				<form:errors path="passwordVerification" cssClass="error" />
 				
-				<div id="signUpButtonContainer">
-					<button type="submit">Save</button>
-				</div>
+				<a id="userSaveButton" class="button redShade" >Save</a>
 				
 			</form:form>
 			

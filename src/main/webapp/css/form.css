@@ -109,26 +109,6 @@ width:380px;
 margin-top:-20px;
 }
 
-#signUpButtonContainer{
-	float:right;
-	margin-right: 75px;
-}
-
-/* .genericForm button{
-	clear:both;
-	width:100px;
-	height:30px;
-	background:#DE0019;
-	text-align:center;
-	line-height:31px;
-	color:#FFFFFF;
-	font-size:12px;
-	font-weight:bold;
-	font-style: italic;
-	float: right;
-	padding-bottom: 5px;
-} */
-
 .button {;
     border-radius: 7px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
