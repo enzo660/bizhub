@@ -41,3 +41,11 @@ a.mainLink:hover{
 	text-decoration:none;
 	border-bottom-color: #DE0019;
 }
+
+.greenText{
+	color: #16C34C;
+}
+
+.bold{
+	font-weight: bold;
+}

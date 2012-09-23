@@ -9,6 +9,7 @@
     <title>Bizvez - The Online Business Hub</title>
     <jsp:include page="htmlHead.jsp"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/home.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
   </head>
   <body>
   
@@ -56,19 +57,26 @@
 				<p class="stepIntro">Want to exhibit your business online? Create an address on Bizvez in few clicks.</p>
 
 				<div id="step1" class="stepContent">			
-					<p> <span> 1. </span> Click on the 'Tour' link in the bar at the top if you'd like a quick tour.<p>
-					<p>Create an account using your email address. </p>	
+					<p> <span class="number"> 1. </span> Click on the 'Tour' link in the bar at the top if you'd like a quick tour.<p>
+					<p>Create your account using the <span class="bold">'Sign Up'</span> link on the top or the <span class="greenText bold">green</span> button below.</p>	
 				</div>
 
 				<div id="step2" class="stepContent">
-					<p> <span> 2. </span> Create your business 'site'. </p>
+					<p> <span class="number"> 2. </span> Create your business 'site'. </p>
 					<p>Enter basic details like the name of your business, description, city, state, etc.<p>
 					<p>Pick a unique name to address your business.</p>
 				</div>
 				
 				<div id="step3" class="stepContent">
-					<p> <span> 3. </span> Use the editor to create basic content for your business. </p>
+					<p> <span class="number"> 3. </span> Use the editor to create basic content for your business. </p>
 					<p>That's it! You're online!</p>
+					<security:authorize ifNotGranted="ROLE_USER">
+						<a id="freeButton" class="button greenShade bold" href="<c:url value='/user_form'/>" >It's Free!</a>
+					</security:authorize>
+					<security:authorize ifAllGranted="ROLE_USER">
+						<a id="freeButton" class="button greenShade bold" href="<c:url value='/site_form'/>" >My Site</a>
+					</security:authorize>
+					
 				</div>
 			</div>
 			
