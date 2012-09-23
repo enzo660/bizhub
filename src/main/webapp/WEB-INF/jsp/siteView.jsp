@@ -9,6 +9,8 @@
   <head>
     <title>${site.name} Site</title>
     <jsp:include page="htmlHead.jsp"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/form.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/userView.css'/>">
   </head>
   <body>
   
@@ -16,46 +18,40 @@
   	
   		<jsp:include page="navBar.jsp"/>
   		
-	    <h1>${site.name} Site</h1>
-	    <table class="nameValuePairs">
-	      <tr>
-	        <th>Name:</th>
-	        <td>${site.name}</td>
-	      </tr>
-	      <tr>
-	        <th>Description:</th>
-	        <td>${f:convertToHtmlLineBreaks(site.description)}</td>
-	      </tr>
-	      <tr>
-	        <th>City:</th>
-	        <td>${site.city}</td>
-	      </tr>
-	      <tr>
-	        <th>State:</th>
-	        <td>${site.state}</td>
-	      </tr>
-	      <tr>
-	        <th>Bizvez site address:</th>
-	        <td>${site.address}</td>
-	      </tr>
-	      <tr>
-	        <th>Content:</th>
-	        <td>${site.content}</td>
-	      </tr>
-	      
-	      <security:authorize ifNotGranted="ROLE_ADMIN">
-	      	<tr>
-		        <th>&nbsp;</th>
-		        <td style="padding-top: 10px;">
-		          <a class="button" href="<c:url value='/site_form'/>">Edit</a>
-		          <a class="button" href="<c:url value='/site_delete'/>"
-			       onclick="return confirm('Are you sure you wish to delete this site?');">Delete</a>
-		        </td>
-		      </tr>
-	      </security:authorize>
-	      
-	    </table>
-	    
+  		<a class="mainLink userViewGoHomeLink" href="<c:url value='/home'/>">Go Home</a>
+		
+		<div class="genericForm view">
+			<h1>${site.name} Site</h1>
+			<p></p>
+			
+			<label>Name:</label>
+			<div class="formValue">${site.name}</div>
+			
+			<label>Description:</label>
+			<div class="formValue">${f:convertToHtmlLineBreaks(site.description)}</div>
+			
+			<label>City:</label>
+			<div class="formValue">${site.city}</div>
+			
+			<label>State:</label>
+			<div class="formValue">${site.state}</div>
+			
+			<label>Bizvez site address:</label>
+			<div class="formValue">www.bizvez.com/site/${site.address}</a></div>
+			
+			<security:authorize ifNotGranted="ROLE_ADMIN">
+				<label></label>
+				<div class="formValue">
+					<a class="button redShade" href="<c:url value='/site_form'/>">Edit</a>
+					<a
+						class="button redShade" href="<c:url value='/site_delete'/>"
+						onclick="return confirm('Are you sure you wish to delete this site?');">Delete
+					</a>	
+				</div>
+			</security:authorize>
+
+		</div>
+  		
 	    <jsp:include page="footer.jsp"/>
   	
   	</div>
