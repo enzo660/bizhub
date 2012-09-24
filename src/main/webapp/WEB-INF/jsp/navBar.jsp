@@ -8,11 +8,11 @@
 	
 		<a href="<c:url value='/home'/>">Home</a>
 		
-		<a href="#">Tour</a>
+		<a href="<c:url value='/tour'/>">Tour</a>
 		
-		<a href="#">Follow Us</a>
+		<a href="http://twitter.com/bizvez">Follow Us</a>
 		
-		<a href="#">About</a>
+		<a href="<c:url value='/about'/>">About</a>
 		
 		<security:authorize ifNotGranted="ROLE_USER">
 			<a href="<c:url value='/user_form'/>">Sign Up</a>

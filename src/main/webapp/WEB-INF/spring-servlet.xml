@@ -49,6 +49,10 @@
 	
 	<mvc:view-controller path="/access_denied" view-name="accessDenied" />
 	
+	<mvc:view-controller path="/tour" view-name="tour" />
+	
+	<mvc:view-controller path="/about" view-name="about" />
+	
 	<bean name="/home" class="com.bizhub.bzwebapp.web.HomeController">
 		<property name="viewName" value="home"/>
 	</bean>
