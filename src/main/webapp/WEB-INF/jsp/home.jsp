@@ -29,7 +29,7 @@
 			<security:authorize ifAllGranted="ROLE_USER">
 				<c:choose>
 		    		<c:when test="${empty site}">
-		        		<a class="mainLink" href="<c:url value='/site_form'/>"> Create my Site</a>
+		        		<a class="mainLink" href="<c:url value='/site_form'/>"> Create My Site</a>
 		    		</c:when>
 		    		<c:otherwise>
 		      	 		<a class="mainLink" href="<c:url value='/site'/>">My Site</a>
