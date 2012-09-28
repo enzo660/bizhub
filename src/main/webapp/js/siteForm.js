@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+	$("#contentDiv").hide();
 	/*
 	 * When the editor is opened
 	 */
