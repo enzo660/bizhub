@@ -21,11 +21,16 @@
 			<img src="<c:url value='/images/home.jpg'/>" class="tourFigure left">
 			<div id="home" class="tourContent right">
 				<h1 class="tour">1. Why Bizvez?</h1>
-				hello! uhwfowef woifggowqgwgi fwqeiofywef [pewwpf]
-				hello! uhwfowef woifggowqgwgi fwqeiofywef [pewwpf]
-				hello! uhwfowef woifggowqgwgi fwqeiofywef [pewwpf]
-				hello! uhwfowef woifggowqgwgi fwqeiofywef [pewwpf]
-				hello! uhwfowef woifggowqgwgi fwqeiofywef [pewwpf]
+				<p>
+					Want to exhibit your business online and don't know where to start?<br/>
+					You've come to the right place!
+				</p>
+
+				<p>
+					Bizvez is the online business hub where you can create content to promote your business and
+					let us worry about hosting and other technical details. You can login any time and update the content.</p>
+
+				<p>So click on the 'Sign Up' link in the black bar on the top and advertise your business to the world in the most optimized way!</p>
 			</div>
 			
 			<img src="<c:url value='/images/signup.jpg'/>" class="tourFigure right">
