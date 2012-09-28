@@ -10,7 +10,7 @@
 		
 		<a href="<c:url value='/tour'/>">Tour</a>
 		
-		<a href="http://twitter.com/bizvez">Follow Us</a>
+		<a href="http://twitter.com/bizvez" target="_blank">Follow Us</a>
 		
 		<a href="<c:url value='/about'/>">About</a>
 		

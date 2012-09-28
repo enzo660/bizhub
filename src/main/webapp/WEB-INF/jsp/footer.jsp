@@ -7,6 +7,6 @@
 	</div>	
 	<div id="footerLinks">
 		<a href="#">Feedback</a>
-		<a href="#">About</a>
+		<a href="<c:url value='/about'/>">About</a>
 	</div>
 </div>

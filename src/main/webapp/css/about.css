@@ -1,0 +1,36 @@
+#aboutContent{
+	
+	position:relative;
+	top:125px; 
+	width: 800px;
+	margin: 0 auto;
+	
+	font-size:15px;
+	background:#EFEFEF;
+	color : #DE0019;
+	padding:10px;
+
+	/* Adds shadow to the form div */
+	-webkit-box-shadow: 0px 0px 8px 0px #000000;
+	-moz-box-shadow: 0px 0px 8px 0px #000000;
+	box-shadow: 0px 0px 8px 0px #000000;
+	border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+#aboutContent p{
+	padding-bottom:6px;
+}
+
+#aboutContent p.firstPara{
+	text-indent:25px;
+}
+
+#name{
+	margin-top:10px;
+	margin-left: 421px;
+	color:#666666;
+	font-style:italic;
+	font-size:18px;
+}
