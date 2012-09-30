@@ -32,7 +32,7 @@
 			</p>
 			
 			<div id="name">
-				Prateek Temkar, Founder and CEO - Bizvez
+				<h1>Prateek Temkar, Founder and CEO - Bizvez</h1>
 			</div>
 		
 		</div>
