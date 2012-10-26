@@ -6,7 +6,7 @@
 		Recommended browsers : IE9, Firefox 11.0, Safari 5.1, Chrome 18 and above 
 	</div>	
 	<div id="footerLinks">
-		<a href="#">Feedback</a>
+		<a href="mailto:admin@bizvez.com">Feedback</a>
 		<a href="<c:url value='/about'/>">About</a>
 	</div>
 </div>
